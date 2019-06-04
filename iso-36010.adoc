@@ -52,14 +52,65 @@ This is the first edition of this document.
 :sectnums!:
 == Introduction
 
+There is a general need for interchange and interoperability of structured text amongst
+information systems. While there is a plethora of richly-formatted text documents,
+ranging from complex document formats like OOXML and ODF, hypertext formats like HTML,
+to older formats such as RTF and presentation focused formats like PDF,
+there is no standardized method of transmitting an interoperable text
+structure to another system.
+
+In addition, the popularity of lightweight text markup syntaxes like Markdown
+and AsciiDoc has been hampered by practical concerns that documents generated
+by such syntaxes have inherited identical issues as have the above
+document formats.
+
+This limits the exchange of structured text down to the lowest common denominator
+in parsing support, which is, plain text -- that lacks any kind of
+structure (human or machine understandable).
+
+The _BasicDocument_ model is created to express the structure of generic documents
+in a lightweight form.
+
+_BasicDocument_ achieves a number of goals:
+
+* Serve as an interoperable basis that allows systems to interchange
+  general documents while preserving semantics.
+* Allows document formats to be mapped to it and out of it, effectively
+  enabling document formats to be converted to presentation
+  formats without loss of meaning.
+* Establishes a central data model for supporting multiple input
+  formats (and syntaxes) with multiple output formats.
+* Enables changes to be applied incrementally in a defined manner.
+
+It is deliberately not a detailed document model, unlike DocBook and TEI:
+it is intended to be a base document model which other document models can map to
+or specialize upon.
+
+The Basic Document document model has drawn on several existing models,
+with a view to reflecting the expressiveness of existing standards,
+but also to align with the capability of established document production tools.
+
+The markup languages and document production tools that _BasicDocument_ consciously
+sought to align with include:
+
+* hypertext formats: HTML 5 and HTML 4
+* document formats: OOXML, RTF, DocBook
+* text markup syntaxes: Markdown and AsciiDoc
+
+
+//The modelling of blocks and inline elements in particular are closely aligned with HTML.
 
 == Scope
 
-This document provides a lightweight document metamodel called _BasicDocument_ for generic documents.
-It is intended to serve as an interoperable basis for simple rich text formats and syntaxes, including
-RTF, Markdown and AsciiDoc.
+This document provides a lightweight document metamodel called
+_BasicDocument_ for generic documents.
+It is intended as an interoperable basis that allows systems to interchange
+generic documents while preserving semantics.
 
-The modelling of bibliographies and bibliographic citations is part of the reference model, but is the subject of a separate document, <<relaton>>, therefore they are not described in detail in this document.
+
+The modelling of bibliographies and bibliographic citations is part of the reference model,
+but is the subject of a separate document, <<relaton>>,
+therefore they are not described in detail in this document.
 
 The following aspects are excluded from scope:
 
@@ -77,12 +128,13 @@ The modelling of changes to documents is in scope of the _BasicDocument_ model d
 
 
 [bibliography]
-== Normative References
+== Normative references
 
 * [[[relaton,ISO 6900:--]]] footnote:[In draft], _Information and documentation -- Bibliographic reference model and serialization_
 * [[[rfc3986,IETF RFC 3986]]], _Uniform Resource Identifier (URI): Generic Syntax_
 * [[[iso639,ISO 639 (all parts)]]], _Codes for the representation of names of languages_
-* [[[iso8601,ISO 8601]]], _Data elements and interchange formats – Information interchange – Representation of dates and times_
+* [[[iso8601-1,ISO 8601-1]]], _AUTOFILL_
+* [[[iso8601-2,ISO 8601-2]]], _AUTOFILL_
 * [[[iso10118,ISO/IEC 10118 (all parts)]]], _Information technology -- Security techniques -- Hash-functions_
 * [[[iso14888,ISO/IEC 14888 (all parts)]]], _Information technology -- Security techniques -- Digital signatures with appendix_
 * [[[iso15924,ISO 15924]]], _Information and documentation -- Codes for the representation of names of scripts_
@@ -120,7 +172,7 @@ subdivision of running text, normally run on throughout, that is separated from 
 
 _paragraph_ (<<term_paragraph>>)-level grouping of text
 
-=== inline Element
+=== inline element
 
 grouping of text that can be contained within a _paragraph_ (<<term_paragraph>>), including plain strings
 
@@ -139,7 +191,7 @@ character, or group of characters, used to identify or name an item of data and 
 
 == Modelling
 
-=== Structure
+=== Intent
 
 The _BasicDocument_ model expresses the structure of generic documents in a lightweight form.
 
@@ -147,16 +199,20 @@ It is deliberately not a detailed document model, unlike DocBook and TEI: it is 
 
 // For example, the Metanorma document model takes the Basic Document model as its starting point.
 
+== Specialization
+
 Specialization of a model consists of:
- XML-based schemas like HTML, TEI-C, or DocBook
+
 * Adding classes to a base model.
 * Changing attributes of a base model class. This is not restricted to adding attributes, as is the case in typical entity subclassing; it can also include removing attributes from a class, changing their obligation and cardinality, and changing their type, including changing enumerations. Attributes can be overruled at any level; for example, standards-specific models routinely enhance the bibliographic model at the base of the hierarchy.
 * For reasons of clarity, renaming classes and attributes is avoided in specialisation.
 
+== Structure
+
 The classes involved in the document model are of three classes:
 
-* Sections (<<basicsection>>, <<standardssection>>)
-* Blocks (paragraph-level groupings of text) (<<basicblock>>, <<standardsblock>>)
+* Sections (<<basicsection>>)
+* Blocks (paragraph-level groupings of text) (<<basicblock>>)
 * Inline elements (groupings of text smaller than a paragraph, including plain strings) (<<inline>>)
 
 In the _BasicDocument_ model, the classes are in a strict hierarchical relation:
@@ -165,12 +221,11 @@ In the _BasicDocument_ model, the classes are in a strict hierarchical relation:
 * Sections can be nested within sections (e.g. clauses and subclauses); blocks can be nested within blocks (e.g. nested lists);
 * Inline elements can also be embedded within other inline elements (e.g. bold + italics).
 
-However, sections are not expected to be siblings of blocks, nor blocks of inline elements.
+However, sections should not be siblings of blocks, nor blocks of inline elements.
+For this reason, paragraphs cannot contain other block elements, such as lists or tables.
 
 [.example]
 a list (block) is not expected to occur next to inline text within a paragraph.
-
-For this reason, paragraphs cannot contain other block elements, such as lists or tables.
 
 NOTE: This constraint is imposed in order to maintain structural simplicity of this model.
 While it sacrifices some expressive potential, the difference is minor, particularly with regards to the rendering of paragraphs.
@@ -180,20 +235,12 @@ The _BasicDocument_ model is most fleshed out at the level of blocks and inline 
 
 // this is the case for the Metanorma use of the Basic Document model.
 
-The Basic Document model depends on the <<iso690>> bibliography model for its expression of bibliographic references. The specific bibliography model instantiation and serialisation it uses is described in <<relaton>>.
+The Basic Document model depends on the <<iso690>> bibliography model for its expression of bibliographic references. The specific bibliography model instantiation and serialization it uses is described in <<relaton>>.
 
 
-=== Influences
-
-The Basic Document document model has drawn on several existing models, with a view to reflecting the expressiveness of existing standards, but also to align with the capability of established document production tools.
-
-The markup languages and document production tools that Metanorma consciously sought to align with are HTML 4, HTML 5, Markdown, AsciiDoc, and Microsoft Word. The modelling of blocks and inline elements in particular are closely aligned with HTML.
-
-
-== Basic Document Model
 
 [[basicdocument]]
-=== Document
+== BasicDocument model
 
 The _BasicDocument_ model treats all documents as collections of _sections_ (<<basicsection>>). It also adds the following metadata as part of the document model:
 
@@ -210,21 +257,25 @@ The _BasicDocument_ model treats all documents as collections of _sections_ (<<b
 .Basic Document model: Document
 [plantuml]
 ....
-include::models/BasicDocument.wsd[]
+include::basicdoc-models/models/BasicDocument.wsd[]
 ....
+
+
+== Metadata and bibliographic information models
 
 The modelling of `bibdata` follows the _BibliographicItem_ class in <<relaton>>, and readers are referred to that specification. The  _BibliographicItem_ class is intended to capture document citations, and to be applicable to any document type, without any further specialisation; that is because a document can cite documents of any type.
 
 The `bibdata` class allows the _BibliographicItem_ class to be extended with metadata specific to a document class, which appears as document metadata rather than as citation data; this information is modelled in `BibDataExtensionType`. The only extension point modelled as generically applicable in the Basic Document model is the document type, which is populated in the generic instance with the single value "document". It is assumed that particular specialisations of the document model will substitute  their own enumerations of particular subclasses of document, which will be more granular than the intentionally generic classes of document modelled in <<relaton>>.
 
-.Basic Document model: bibdata
+.Basic Document model: Bibdata
 [plantuml]
 ....
-include::models/BibData.wsd[]
+include::basicdoc-models/models/BibData.wsd[]
 ....
 
+
 [[basicsection]]
-=== Section
+== Section models
 
 The _BasicDocument_ model is generic in its application, and accordingly does not do detailed modelling of the differences between sections; that is deferred for specialisations (such as the _StandardsDocument_ model). The _BasicDocument_ model only recognises the following classes of section:
 
@@ -251,11 +302,13 @@ the co-occurrence of text and subsections in a clause (or in a section) is prosc
 .Basic Document model: Section
 [plantuml]
 ....
-include::models/Sections.wsd[]
+include::basicdoc-models/models/Sections.wsd[]
 ....
 
 [[basicblock]]
-=== Block
+== Block models
+
+=== General
 
 Blocks of text are all modelled as subclasses of the _Basic Block_ class, which has the following attributes common to all blocks:
 
@@ -269,17 +322,21 @@ The _BasicDocument_ model recognises the following classes of block:
 * Multi-paragraph blocks: Blockquotes, Reviewer comments, Admonitions (<<basicmultipara>>)
 * Tables (<<basictable>>)
 * Lists (<<basiclist>>): Unordered lists, Ordered lists, Definition lists
-* Figures (<<basicfigure>>)
-* Sourcecode (<<basicsourcecode>>)
-* Formulas (<<basicformula>>)
-* Examples (<<basicexample>>)
-* Preformatted Blocks (<<basicliteral>>)
+* Ancillary blocks: Figures (<<basicfigure>>),
+Sourcecode (<<basicsourcecode>>),
+Formulas (<<basicformula>>),
+Examples (<<basicexample>>),
+Preformatted blocks (<<basicliteral>>)
 
-Functionally figures, sourcecode, formulas, preformatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
+.Basic Document model: Block
+[plantuml]
+....
+include::basicdoc-models/models/Blocks.wsd[]
+....
 
 
 [[basicpara]]
-==== Paragraph
+=== Paragraph
 
 Paragraphs can contain any sequence of inline elements (<<inline>>), and optionally a text alignment (`alignment`).
 Unlike the case for other document models, paragraphs _cannot_
@@ -294,17 +351,21 @@ Paragraphs have the following subclass:
 .Basic Document model: Paragraph
 [plantuml]
 ....
-include::models/Paragraphs.wsd[]
+include::basicdoc-models/models/Paragraphs.wsd[]
 ....
 
 [[basicmultipara]]
-==== Multi-paragraph blocks
+=== Multi-paragraph blocks
 
 
 The following classes of block are modelled as containing zero or more paragraphs:
 
-* _Blockquote_, which also contains an optional bibliographic citation for the quotation (`source`), and an optional `author` of the quotation. The `author` attribute of the blockquote is redundant with the citation, since it restates  information about the author that should be recoverable from the citation itself. It is included for convenience, in case processing the citation to extract the author is prohibitive for rendering tools, and it is motivated by the separate inclusion of `author` as an attribute in blockquotes in Asciidoctor.
+* _Blockquote_, which also contains an optional bibliographic citation for the quotation (`source`), and an optional `author` of the quotation. The `author` attribute of the blockquote is redundant with the citation, since it restates information about the author that should be recoverable from the citation itself. It is included for convenience, in case processing the citation to extract the author is prohibitive for rendering tools.
+
+//, and it is motivated by the separate inclusion of `author` as an attribute in blockquotes in Asciidoctor.
+
 * _Admonition_, which captures sidebars to the main text conveying particular warnings to the reader. The Admonition block includes a name (title) and a type of admonition; the defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, and Caution_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
+
 * [[review]]_Review_, which is intended to capture reviewer comments about some text in the document. The Review block includes the following attributes: an optional string identifying the `reviewer` who offered the comment; an optional `date` when the comment was made; a mandatory identifier for the start of the text to which the comment applies (`appliesFrom`), and an optional identifier for the end of the text to which the comment applies (`appliesTo`).
 
 NOTE: If the `appliesTo` identifier of a Review block is absent, the comment applies only to the span of text identified by the `appliesFrom` identifier; if it is present, the comments applies to the span of text between the start of the span of text identified by `appliesFrom`, and the end of the span of text identified by `appliesTo`.
@@ -314,11 +375,11 @@ NOTE: Admonition notes are modelled to be distinct from notes under sections or 
 .Basic Document model: Multi-paragraph Block
 [plantuml]
 ....
-include::models/MultiParagraphs.wsd[]
+include::basicdoc-models/models/MultiParagraphs.wsd[]
 ....
 
 [[basictable]]
-==== Table
+=== Table
 
 
 Tables are modelled following the same principles as HTML tables. They contain the following elements:
@@ -342,25 +403,42 @@ _Table cells_ contain either zero or more paragraphs with footnotes (<<basicpara
 .Basic Document model: Table
 [plantuml]
 ....
-include::models/Tables.wsd[]
+include::basicdoc-models/models/Tables.wsd[]
 ....
 
 [[basiclist]]
-==== List
+=== List
 
 Lists are modelled following the same principles as HTML lists. All lists contain zero or more _list items_, which by default consist of an identifier (`id`), and one or more paragraphs with footnotes (<<basicpara>>). This allows individual list items in a list to be cross-referenced within the document.
 
 Three subclasses of List are modelled.
 
 * _Unordered lists_ are equivalent to the List base class.
+
 * _Ordered lists_ are Lists with a `type` attribute, describing the kind of numeration applied to the List; the values allowed under the _BasicDocument_ model are _roman, alphabet, arabic, roman_upper, alphabet_upper_, corresponding to lowercase Roman numerals, lowercase alphabetic letters, Arabic numerals, uppercase Roman numerals, and uppercase alphabetic letters.
+
 * _Definition lists_ override the definition of the List Item to be a pair of `item` (zero or more text elements: <<textelements>>) and `definition` (zero or more paragraphs with footnotes: <<basicpara>>).
 
 .Basic Document model: List
 [plantuml]
 ....
-include::models/Lists.wsd[]
+include::basicdoc-models/models/Lists.wsd[]
 ....
+
+
+[[supporting-blocks]]
+=== Ancillary blocks
+
+==== General
+
+Functionally, figures, sourcecode, formulas, preformatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
+
+.Basic Document model: Figure, Sourcecode, Formula, Example
+[plantuml]
+....
+include::basicdoc-models/models/AncillaryBlocks.wsd[]
+....
+
 
 [[basicfigure]]
 ==== Figure
@@ -425,18 +503,10 @@ It also contains the following elements:
 
 
 
-.Basic Document model: Figure, Sourcecode, Formula, Example
-[plantuml]
-....
-include::models/MiscBlocks.wsd[]
-....
-
-
-
 [[inline]]
-=== Inline Elements
+== Inline element models
 
-==== General
+=== General
 
 Inline elements represent the components of text blocks. They are modelled in the _BasicDocument_ model as _Basic Elements_.
 
@@ -453,7 +523,7 @@ Three subclasses of Basic Elements are modelled:
 Footnotes (<<footnote>>) are a special case of Reference element, which are not included under Basic Elements because of the need to exclude them from certain classes of paragraph (<<basicpara>>).
 
 [[textelements]]
-==== Text Elements
+=== Text Elements
 
 The modelling of text elements is substantially derived from HTML, and encompasses semantically significant formatting of text. For example, it encompasses italics and boldface (under their semantic guise of `emphasis` and `strong`); but it omits different sizes of font, as information that is typically semantically predictable, and relegated to stylesheets.
 
@@ -476,10 +546,10 @@ Text Elements also include the STEM element, representing mathematical and other
 .Basic Document model: Text Elements
 [plantuml]
 ....
-include::models/TextElements.wsd[]
+include::basicdoc-models/models/TextElements.wsd[]
 ....
 
-==== Empty Elements
+=== Empty Elements
 
 The following elements are subclasses of Basic Element that contain no text, and are intended to represent semantically significant formatting elements:
 
@@ -490,12 +560,12 @@ The following elements are subclasses of Basic Element that contain no text, and
 .Basic Document model: Empty Elements
 [plantuml]
 ....
-include::models/EmptyElements.wsd[]
+include::basicdoc-models/models/EmptyElements.wsd[]
 ....
 
 
 [[image]]
-==== ID Elements
+=== ID Elements
 
 ID Elements are inline elements that have an identifier (`id`), which permits them to be cross-referenced by Reference Elements (<<crossreferences>>). ID Elements in the _BasicDocument_ model do not contain text.
 
@@ -504,9 +574,14 @@ There are two subclasses of ID Elements in the _BasicDocument_ model:
 * _Bookmarks_ are intended as anchors for cross-references which do not have scope over blocks or sections. Anchors within a block under the _BasicDocument_ model cannot span across a number of inline elements; bookmarks are intended as point anchors. For that reason, the Review block (<<review>>) has a starting reference and an optional ending reference, which can be bookmarks as well as block or section references.
 
 * _Images_ are containers for pictorial content. They have the following attribues:
+
 `source`:: indicating the URI of the image file
+
 `filename`:: indicating a file name corresponding to the image, to which the image can be extracted if it is represented inline (e.g. in Base64 encoding in the URI)
+
 `type`:: indicating the type of the image file; the Basic Document model constraints this to be one of `SVG`, `JPEG`, `GIF`, `PNG`, `PDF`.
+// TODO: This ought to be relaxed
+
 `alt`:: alternate text, supplied for accessibility
 `height`:: optional attribute, which can be an integer or "auto"
 `width`:: optional attribute, which can be an integer or "auto"
@@ -516,12 +591,12 @@ NOTE: The _BasicDocument_ model does not encompass audio and video files, but an
 .Basic Document model: ID Elements
 [plantuml]
 ....
-include::models/IdElements.wsd[]
+include::basicdoc-models/models/IdElements.wsd[]
 ....
 
 
 [[crossreferences]]
-==== Reference Elements
+=== Reference Elements
 
 Reference Elements are inline elements which reference other elements in the document, or other documents. All Reference Elements are modelled as containing the following attributes:
 
@@ -540,23 +615,23 @@ The Reference to ID Element class in turn has the following subclasses modelled:
 * Reference To ID With Paragraph Element, which associates both `text` and `content` to the cross-reference; the `content` is a sequence of one or more paragraphs (<<basicpara>>).
 
 [[footnote]]
-==== Footnote
+=== Footnote
 
 Footnotes are modelled as a subclass of Reference To ID With Paragraph Element, which constrain their `type` to be _footnote_. The `text` attribute is the footnote reference, and the `content` attribute is the footnote contents.  The target of the footnote is understood to be the location of the footnote within the text; the extent of the target is not expressed overtly.
 
 NOTE: Endnotes are not modelled separately from footnotes in the _BasicDocument_ model, and the use of footnotes and endnotes as realisations of annotations are normally stylistic alternatives, which would be relegated to a stylesheet.
 
 [[datavalues]]
-=== Data Types
+== Data type models
 
-==== Basic Data Types
+=== Basic Data Types
 
 The following basic types are used in the definition of the _BasicDocument_ model.
 
 * String
 * URI, as defined in <<rfc3986>>.
 * Language names, as defined in <<iso639>>.
-* Dates and times, as defined in <<iso8601>>.
+* Dates and times, as defined in <<iso8601-1>>.
 * Hash algorithms, as defined in <<iso10118>>.
 * Digital signature algorithms, as defined in <<iso14888>>.
 * Script names, as defined in <<iso15924>>.
@@ -566,12 +641,12 @@ The following basic types are used in the definition of the _BasicDocument_ mode
 .Basic Document model: Data Types
 [plantuml]
 ....
-include::models/DataTypes.wsd[]
+include::basicdoc-models/models/DataTypes.wsd[]
 ....
 
 
 [[contributionelementmetadata]]
-==== Contribution Element Metadata
+=== Contribution Element Metadata
 
 In addition to the Basic Data Values, the _BasicDocument_ model defines a container encoding the contribution made by a party towards a particular element in the document, with the following attributes:
 
@@ -579,13 +654,171 @@ In addition to the Basic Data Values, the _BasicDocument_ model defines a contai
 `contributor`:: The party who made the contribution, as described through the `contributor` element in <<relaton>>.
 `inegrityValue`:: A digital signature of the contribution, consisting of a `hash` value and a `signature`, with an associated `publicKey`.
 
-////
 .Basic Document model: Contribution Element Metadata
 [plantuml]
 ....
-include::models/ContribMetadata.wsd[]
+include::basicdoc-models/models/ContribMetadata.wsd[]
 ....
-////
+
+
+
+== Change models
+
+=== General
+
+The change models are provided in _BasicDocument_ to enable changes to be
+applied incrementally towards a _BasicDocument_ in a defined manner.
+
+
+.Basic Document model: Changes
+[plantuml]
+....
+include::basicdoc-models/models/Changes.wsd[]
+....
+
+
+=== Change
+
+The _Change_ model defines an action to be performed on an element within _BasicDocument_.
+
+It contains the following attributes:
+
+`target`::  The element that this action should be applied to.
+`identifier`::  A unique identifier of this change.
+`parentIdentifier`::  One or more unique identifiers of _Change_ objects, that this change is supposed to follow after.
+`contribMetadata`::  Metadata of the contributor, see <<contributionelementmetadata>>.
+
+
+=== Change set
+
+The _ChangeSet_ model defines a collection of _Change_ data, and specifies
+a unique identifier that identifies the _BasicDocument_ where this
+_ChangeSet_ should be applied to.
+
+`changes`:: The set of _Change_ data.
+`documentIdentifier`:: The unique identifier that identifies the _BasicDocument_
+where this _ChangeSet_ should be applied to.
+
+
+=== Unique identifier
+
+The unique identifier is used to uniquely identify a _BasicDocument_.
+
+It contains the attribute:
+
+`value`:: A string that uniquely identifies a _BasicDocument_.
+
+
+=== Content change
+
+==== General
+
+The _ContentChange_ model defines possible actions
+that involve modification of content within a _BasicDocument_
+data element.
+
+==== Content change action
+
+The _ContentChangeAction_ model is used to indicate the actual content
+changes that applies to the specified portion of textual content.
+This is used both by the _ContentModify_ and _AttributeModify_ models
+as their content are treated as pure text.
+
+It provides the following attributes:
+
+`action`:: A _ContentAction_ value, where it could be either `insert` or `delete`,
+  indicating text to be inserted or deleted from the content.
+
+`from`:: An `Integer` that specifies the beginning cursor position of a textual change.
+`to`:: An `Integer` that specifies the ending cursor position of a textual change.
+`text`:: In the case of an `insert`, a `String` to be inserted or replace the substring referred to by `from` to `to`.
+`length`:: In the case of a `delete`, an `Integer` to indicate how many characters to be removed from the `from` position.
+  In the case of an `insert`, an `Integer` to indicate the length of the `text` attribute.
+
+
+==== Content modify
+
+The _ContentModify_ class provides a container for a multiple _ContentChangeAction_ data.
+
+It has the following attribute:
+
+`actions`:: One or more `ContentChangeAction` data
+
+
+=== Attribute change
+
+
+The _AttributeChange_ model defines possible actions
+that involve modification of an attribute within a _BasicDocument_
+data element.
+
+==== Attribute change action
+
+Similar to _ContentChangeAction_ which it inherits from,
+the _AttributeChangeAction_ class is used to specify an
+actual change to an attribute.
+
+It has the following attribute:
+
+`attributeId`:: A `String` that identifies the attribute where the attribute change
+should apply to.
+
+
+==== Attribute modify
+
+The _AttributeModify_ class provides a container for a multiple _AttributeChangeAction_ data.
+
+It has the following attribute:
+
+`actions`:: One or more `AttributeChangeAction` data
+
+// TODO: This seems to only handle a string, not changing attribute name or attribute value?!
+
+
+=== Node change
+
+==== General
+
+The _NodeChange_ model defines possible actions that involve
+modification of data elements at the node level within a
+_BasicDocument_.
+
+The `target` attribute inherited from the _Change_ model indicates
+the node this _NodeChange_ action applies to.
+
+
+==== Node insert
+
+The _NodeInsert_ class specifies the insertion
+of a data node in a _BasicDocument_.
+
+It has the following attribute:
+
+`content`:: A data element conforming to _BasicElement_ to be inserted into the specified _BasicDocument_.
+
+
+==== Node delete
+
+The _NodeDelete_ class specifies the deletion of a data node in a _BasicDocument_.
+
+It has the following attributes:
+
+`hashValue`:: An optional string that contains the hash value of the node to be deleted for verification purposes.
+
+
+==== Node move
+
+The _NodeMove_ class specifies moving of a particular node in a _BasicDocument_
+to another location within the same _BasicDocument_.
+
+It has the following attributes:
+
+`positionOld`:: A `ReferenceToIdElement` that indicates the position of the node's parent.
+  While this seems redundant to the `target` attribute inherited from the _Change_ model,
+  it is useful for verifying that the location has not changed.
+
+`positionNew`:: A `ReferenceToIdElement` that indicates the new parent or sibling of the node.
+
 
 
 [bibliography]
