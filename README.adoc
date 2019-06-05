@@ -1,6 +1,6 @@
 = CalConnect Standard: Lightweight document -- Document metamodel
 
-This work item belongs to TC FREEBUSY.
+This work item belongs to TC VCARD.
 
 image:https://travis-ci.com/CalConnect/csd-lightweight-doc.svg?branch=master["Build Status", link="https://travis-ci.com/calconnect/csd-lightweight-doc"]
 
