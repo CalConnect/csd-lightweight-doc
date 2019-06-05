@@ -1,0 +1,39 @@
+[[datavalues]]
+== Data type models
+
+=== Basic Data Types
+
+The following basic types are used in the definition of the _BasicDocument_ model.
+
+* String
+* URI, as defined in <<rfc3986>>.
+* Language names, as defined in <<iso639>>.
+* Dates and times, as defined in <<iso8601-1>>.
+* Hash algorithms, as defined in <<iso10118>>.
+* Digital signature algorithms, as defined in <<iso14888>>.
+* Script names, as defined in <<iso15924>>.
+* Localised Strings, specifying a String with optional Language and Script attributes.
+* Formatted Strings, specifying a Localised String with a `format` attribute, in order to admit markup into Strings (whether XML-based or not).
+
+.Basic Document model: Data Types
+[plantuml]
+....
+include::../basicdoc-models/models/DataTypes.wsd[]
+....
+
+
+[[contributionelementmetadata]]
+=== Contribution Element Metadata
+
+In addition to the Basic Data Values, the _BasicDocument_ model defines a container encoding the contribution made by a party towards a particular element in the document, with the following attributes:
+
+`dateTime`:: The date and time when the contribution was made.
+`contributor`:: The party who made the contribution, as described through the `contributor` element in <<relaton>>.
+`inegrityValue`:: A digital signature of the contribution, consisting of a `hash` value and a `signature`, with an associated `publicKey`.
+
+.Basic Document model: Contribution Element Metadata
+[plantuml]
+....
+include::../basicdoc-models/models/ContribMetadata.wsd[]
+....
+

@@ -1,0 +1,30 @@
+[[basicsection]]
+== Section models
+
+The _BasicDocument_ model is generic in its application, and accordingly does not do detailed modelling of the differences between sections; that is deferred for specialisations (such as the _StandardsDocument_ model). The _BasicDocument_ model only recognises the following classes of section:
+
+* _Basic Sections_, which are leaf nodes (do not contain any sections).
+
+* _Hierarchical Sections_, which can contain other sections. Hierarchical Sections are modelled as a subclass of Basic Sections, so the hierarchical arrangement of sections can be arbitrarily deep.
+
+* _Content Sections_, which in the _BasicDocument_ model are treated as equivalent to Hierarchical Sections. (The distinction is currently reserved for downstream models such as Metanorma, which differentiates structurally between prefatory sections and sections in the main body of the text; differences between the two may be introduced in the Basic Document model at a later date.)
+
+* _References Sections_, which are leaf nodes, and contain zero or more bibliographical items (as described in <<relaton>>).
+
+All sections are modelled as having the following attributes:
+
+`title`:: an optional title of the section.
+`id`:: an optional identifier for the section, to be used for cross-references within the document. (Citations of references are modelled as cross-references to the corresponding bibliographical item in the References section.)
+`blocks`:: zero or more text blocks, containing the textual content of the section (but excluding subsections, which are only present in Hierarchical Sections).
+`notes`:: any notes whose scope is the entire section, rather than a specific block. Notes are modelled as a sequence of zero or more paragraphs.
+
+
+NOTE: In the _BasicDocument_ model, a section can contain both blocks of text and subsections; in rendering, the blocks of text are presumed to come before the subsections. In some classes of document
+//(notably for Metanorma the ISO document model)
+the co-occurrence of text and subsections in a clause (or in a section) is proscribed as "`hanging paragraphs`": in order for text to be clearly identifiable by section number, those models prevent text and subsections from being siblings. That proscription is modelled as an override of this model specific to Standards documents.
+
+.Basic Document model: Section
+[plantuml]
+....
+include::../basicdoc-models/models/Sections.wsd[]
+....

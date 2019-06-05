@@ -1,0 +1,120 @@
+
+[[inline]]
+== Inline element models
+
+=== General
+
+Inline elements represent the components of text blocks. They are modelled in the _BasicDocument_ model as _Basic Elements_.
+
+All Basic Elements have the following attribute:
+
+`contributionelementmetadata`:: attribution of the element to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
+
+Three subclasses of Basic Elements are modelled:
+
+* Text elements, which contain text and associated formatting information, but which do not contain any associated identifiers. (<<textelements>>)
+* ID elements, which contain identifiers. (<<image>>)
+* Reference elements, which contain references to identifiers. (<<crossreferences>>)
+
+Footnotes (<<footnote>>) are a special case of Reference element, which are not included under Basic Elements because of the need to exclude them from certain classes of paragraph (<<basicpara>>).
+
+[[textelements]]
+=== Text Elements
+
+The modelling of text elements is substantially derived from HTML, and encompasses semantically significant formatting of text. For example, it encompasses italics and boldface (under their semantic guise of `emphasis` and `strong`); but it omits different sizes of font, as information that is typically semantically predictable, and relegated to stylesheets.
+
+All text elements contain a localised string (<<datavalues>>).
+
+The following elements indicate formatting, and have no further attributes:
+
+* Monospace (corresponding to HTML `tt`, `code`)
+* Keyword
+* Emphasis (corresponding to HTML `em`, `i`)
+* Strong (corresponding to HTML `strong`, `b`)
+* Superscript (corresponding to HTML `sup`)
+* Subscript (corresponding to HTML `sub`)
+* Strike (corresponding to HTML 4 `s`)
+* Small Caps
+
+Text Elements also include the STEM element, representing mathematical and other formulas. This consists of a `type`, indicating which language is used to express the formula, and the content of the formula itself. By default the _BasicDocument_ model allows AsciiMath and MathML in STEM elements.
+
+
+.Basic Document model: Text Elements
+[plantuml]
+....
+include::../basicdoc-models/models/TextElements.wsd[]
+....
+
+=== Empty Elements
+
+The following elements are subclasses of Basic Element that contain no text, and are intended to represent semantically significant formatting elements:
+
+* Line Break (corresponding to HTML `br`)
+* Page Break
+* Horizontal Rule (corresponding to HTML `hr`)
+
+.Basic Document model: Empty Elements
+[plantuml]
+....
+include::../basicdoc-models/models/EmptyElements.wsd[]
+....
+
+
+[[image]]
+=== ID Elements
+
+ID Elements are inline elements that have an identifier (`id`), which permits them to be cross-referenced by Reference Elements (<<crossreferences>>). ID Elements in the _BasicDocument_ model do not contain text.
+
+There are two subclasses of ID Elements in the _BasicDocument_ model:
+
+* _Bookmarks_ are intended as anchors for cross-references which do not have scope over blocks or sections. Anchors within a block under the _BasicDocument_ model cannot span across a number of inline elements; bookmarks are intended as point anchors. For that reason, the Review block (<<review>>) has a starting reference and an optional ending reference, which can be bookmarks as well as block or section references.
+
+* _Images_ are containers for pictorial content. They have the following attribues:
+
+`source`:: indicating the URI of the image file
+
+`filename`:: indicating a file name corresponding to the image, to which the image can be extracted if it is represented inline (e.g. in Base64 encoding in the URI)
+
+`type`:: indicating the type of the image file; the Basic Document model constraints this to be one of `SVG`, `JPEG`, `GIF`, `PNG`, `PDF`.
+// TODO: This ought to be relaxed
+
+`alt`:: alternate text, supplied for accessibility
+`height`:: optional attribute, which can be an integer or "auto"
+`width`:: optional attribute, which can be an integer or "auto"
+
+NOTE: The _BasicDocument_ model does not encompass audio and video files, but any extensions to the model would treat them likewise as ID Elements.
+
+.Basic Document model: ID Elements
+[plantuml]
+....
+include::../basicdoc-models/models/IdElements.wsd[]
+....
+
+
+[[crossreferences]]
+=== Reference Elements
+
+Reference Elements are inline elements which reference other elements in the document, or other documents. All Reference Elements are modelled as containing the following attributes:
+
+`text`:: The optional, unformatted textual content of the reference element.
+`type`:: The type of Reference Element, prescribing how it is to be rendered. The _BasicDocument_ model recognises four types: _inline_ (referencing another element in the same document), _external_ (referencing an external document), _footnote_ (an inline reference to be rendered as a footnote), and _callout_ (an inline reference to be rendered as a callout: <<basicsourcecode>>).
+
+The following subclasses of Reference Elements are modelled.
+
+* Reference to Link Element: An external reference, whose `target` is defined as a URI. An optional `alt` attribute is also permitted, summarising the link content for accessibility.
+* Reference to Citation Element: An external reference to a bibliographic entity, as modelled in <<relaton>> as a _citation_. In addition to the attributes of _citation_, the reference has an optional `normative` attribute (which may be used by those standards which differentiate normative and informative references), and optional `citeAs` attributes prescribing how the bibliographic citation should be rendered in the text.
+* Reference to ID Element: An internal reference, whose `target` corresponds to the identifier of a section, block or ID Element within the current document.
+
+The Reference to ID Element class in turn has the following subclasses modelled:
+
+* Callout, for which the `type` is set to _callout_, and the `text` is constrained to be a single mandatory string. The target of the callout is understood to be the location of the callout within the source code; the extent of the target is not expressed overtly.
+* Reference To ID With Paragraph Element, which associates both `text` and `content` to the cross-reference; the `content` is a sequence of one or more paragraphs (<<basicpara>>).
+
+[[footnote]]
+=== Footnote
+
+Footnotes are modelled as a subclass of Reference To ID With Paragraph Element, which constrain their `type` to be _footnote_. The `text` attribute is the footnote reference, and the `content` attribute is the footnote contents.  The target of the footnote is understood to be the location of the footnote within the text; the extent of the target is not expressed overtly.
+
+NOTE: Endnotes are not modelled separately from footnotes in the _BasicDocument_ model, and the use of footnotes and endnotes as realisations of annotations are normally stylistic alternatives, which would be relegated to a stylesheet.
+
+

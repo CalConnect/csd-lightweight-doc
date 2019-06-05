@@ -1,0 +1,49 @@
+
+== Modelling
+
+=== Intent
+
+The _BasicDocument_ model expresses the structure of generic documents in a lightweight form.
+
+It is deliberately not a detailed document model, unlike DocBook and TEI: it is intended to be a base document model which other document models can map to or specialize upon.
+
+// For example, the Metanorma document model takes the Basic Document model as its starting point.
+
+=== Specialization
+
+Specialization of a model consists of:
+
+* Adding classes to a base model.
+* Changing attributes of a base model class. This is not restricted to adding attributes, as is the case in typical entity subclassing; it can also include removing attributes from a class, changing their obligation and cardinality, and changing their type, including changing enumerations. Attributes can be overruled at any level; for example, standards-specific models routinely enhance the bibliographic model at the base of the hierarchy.
+* For reasons of clarity, renaming classes and attributes is avoided in specialisation.
+
+=== Structure
+
+The classes involved in the document model are of three classes:
+
+* Sections (<<basicsection>>)
+* Blocks (paragraph-level groupings of text) (<<basicblock>>)
+* Inline elements (groupings of text smaller than a paragraph, including plain strings) (<<inline>>)
+
+In the _BasicDocument_ model, the classes are in a strict hierarchical relation:
+
+* Documents consist of sections, which consist of blocks, which consist of inline elements.
+* Sections can be nested within sections (e.g. clauses and subclauses); blocks can be nested within blocks (e.g. nested lists);
+* Inline elements can also be embedded within other inline elements (e.g. bold + italics).
+
+However, sections should not be siblings of blocks, nor blocks of inline elements.
+For this reason, paragraphs cannot contain other block elements, such as lists or tables.
+
+[.example]
+a list (block) is not expected to occur next to inline text within a paragraph.
+
+NOTE: This constraint is imposed in order to maintain structural simplicity of this model.
+While it sacrifices some expressive potential, the difference is minor, particularly with regards to the rendering of paragraphs.
+This is a major difference between this model and the more flexible document models in XML-based schemas, such as HTML, TEI-C, and DocBook, which do not have this limitation.
+
+The _BasicDocument_ model is most fleshed out at the level of blocks and inline elements. Specialisation of the model is expected to take place mostly at the level of prescribing particular arrangements of sections.
+
+// this is the case for the Metanorma use of the Basic Document model.
+
+The Basic Document model depends on the <<iso690>> bibliography model for its expression of bibliographic references. The specific bibliography model instantiation and serialization it uses is described in <<relaton>>.
+

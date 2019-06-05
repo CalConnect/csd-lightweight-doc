@@ -1,0 +1,198 @@
+
+[[basicblock]]
+== Block models
+
+=== General
+
+Blocks of text are all modelled as subclasses of the _Basic Block_ class, which has the following attributes common to all blocks:
+
+`id`:: an optional identifier for the block, to be used for cross-references.
+`notes`:: any notes whose scope is the block. Notes are modelled as a sequence of zero or more paragraphs.
+`contributionelementmetadata`:: attribution of the block to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
+
+The _BasicDocument_ model recognises the following classes of block:
+
+* Paragraphs (<<basicpara>>)
+* Multi-paragraph blocks: Blockquotes, Reviewer comments, Admonitions (<<basicmultipara>>)
+* Tables (<<basictable>>)
+* Lists (<<basiclist>>): Unordered lists, Ordered lists, Definition lists
+* Ancillary blocks: Figures (<<basicfigure>>),
+Sourcecode (<<basicsourcecode>>),
+Formulas (<<basicformula>>),
+Examples (<<basicexample>>),
+Preformatted blocks (<<basicliteral>>)
+
+.Basic Document model: Block
+[plantuml]
+....
+include::../basicdoc-models/models/Blocks.wsd[]
+....
+
+
+[[basicpara]]
+=== Paragraph
+
+Paragraphs can contain any sequence of inline elements (<<inline>>), and optionally a text alignment (`alignment`).
+Unlike the case for other document models, paragraphs _cannot_
+contain other blocks, such as lists, tables, or figures: they are modelled as a basic building block of text.
+
+NOTE: Text alignment is the only concession the modelling of paragraphs makes to rendering, and is there because the application of alignment to paragraphs, while rare, can be unpredictable from paragraph semantics. Other rendering attributes of paragraphs, such as spacing before and after, are considered to be semantically predictable and are relegated to document stylesheets.
+
+Paragraphs have the following subclass:
+
+* _Paragraph With Footnote_, which can also contain footnotes (<<footnote>>). While most paragraphs in a document can contain footnotes, the distinction is necessary, as footnotes are not appropriate for all instances of paragraph content in a document (e.g. sourcecode annotations) (<<basicsourcecode>>).
+
+.Basic Document model: Paragraph
+[plantuml]
+....
+include::../basicdoc-models/models/Paragraphs.wsd[]
+....
+
+[[basicmultipara]]
+=== Multi-paragraph blocks
+
+
+The following classes of block are modelled as containing zero or more paragraphs:
+
+* _Blockquote_, which also contains an optional bibliographic citation for the quotation (`source`), and an optional `author` of the quotation. The `author` attribute of the blockquote is redundant with the citation, since it restates information about the author that should be recoverable from the citation itself. It is included for convenience, in case processing the citation to extract the author is prohibitive for rendering tools.
+
+//, and it is motivated by the separate inclusion of `author` as an attribute in blockquotes in Asciidoctor.
+
+* _Admonition_, which captures sidebars to the main text conveying particular warnings to the reader. The Admonition block includes a name (title) and a type of admonition; the defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, and Caution_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
+
+* [[review]]_Review_, which is intended to capture reviewer comments about some text in the document. The Review block includes the following attributes: an optional string identifying the `reviewer` who offered the comment; an optional `date` when the comment was made; a mandatory identifier for the start of the text to which the comment applies (`appliesFrom`), and an optional identifier for the end of the text to which the comment applies (`appliesTo`).
+
+NOTE: If the `appliesTo` identifier of a Review block is absent, the comment applies only to the span of text identified by the `appliesFrom` identifier; if it is present, the comments applies to the span of text between the start of the span of text identified by `appliesFrom`, and the end of the span of text identified by `appliesTo`.
+
+NOTE: Admonition notes are modelled to be distinct from notes under sections or blocks.
+
+.Basic Document model: Multi-paragraph Block
+[plantuml]
+....
+include::../basicdoc-models/models/MultiParagraphs.wsd[]
+....
+
+[[basictable]]
+=== Table
+
+
+Tables are modelled following the same principles as HTML tables. They contain the following elements:
+
+`name`:: An optional label for the table.
+`head`:: Zero or more table rows constituting the table header.
+`body`:: One or more table rows constituting the table body.
+`foot`:: Zero or more table rows constituting the table footer.
+`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the table. (This reflects practice in standards documents such as <<isoiecdir2>>.)
+`alt`:: Alternate text to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
+`unnumbered`:: An optional boolean attribute indicating that the table should be excluded from any automatic numbering of tables in the document.
+
+_Table rows_ are defined as a sequence of zero or more header cells and data cells (corresponding to HTML `th` and `td`), both classes being instances of table cells.
+
+_Table cells_ contain either zero or more paragraphs with footnotes (<<basicpara>>), or zero or more text elements (<<textelements>>). In addition, they have the following optional rendering attributes, which are aligned with HTML:
+
+`colspan`:: Number of columns in the underlying table grid which the cell spans.
+`rowspan`:: Number of rows in the underlying table grid which the cell spans.
+`align`:: Textual alignment of the cell.
+
+.Basic Document model: Table
+[plantuml]
+....
+include::../basicdoc-models/models/Tables.wsd[]
+....
+
+[[basiclist]]
+=== List
+
+Lists are modelled following the same principles as HTML lists. All lists contain zero or more _list items_, which by default consist of an identifier (`id`), and one or more paragraphs with footnotes (<<basicpara>>). This allows individual list items in a list to be cross-referenced within the document.
+
+Three subclasses of List are modelled.
+
+* _Unordered lists_ are equivalent to the List base class.
+
+* _Ordered lists_ are Lists with a `type` attribute, describing the kind of numeration applied to the List; the values allowed under the _BasicDocument_ model are _roman, alphabet, arabic, roman_upper, alphabet_upper_, corresponding to lowercase Roman numerals, lowercase alphabetic letters, Arabic numerals, uppercase Roman numerals, and uppercase alphabetic letters.
+
+* _Definition lists_ override the definition of the List Item to be a pair of `item` (zero or more text elements: <<textelements>>) and `definition` (zero or more paragraphs with footnotes: <<basicpara>>).
+
+.Basic Document model: List
+[plantuml]
+....
+include::../basicdoc-models/models/Lists.wsd[]
+....
+
+
+[[supporting-blocks]]
+=== Ancillary blocks
+
+==== General
+
+Functionally, figures, sourcecode, formulas, preformatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
+
+.Basic Document model: Figure, Sourcecode, Formula, Example
+[plantuml]
+....
+include::../basicdoc-models/models/AncillaryBlocks.wsd[]
+....
+
+
+[[basicfigure]]
+==== Figure
+
+Figures are wrappers for images, and may themselves contain figures (_Subfigure_ class). They contain the following elements, all of which are optional:
+
+`name`:: A label for the figure.
+`image`:: An image (<<image>>).
+`source`:: A URI or other reference intended to link to an externally hosted image (or equivalent).
+`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the figure. (This reflects practice in <<isoiecdir2>>.)
+`footnotes`:: Optional footnotes specific to the figure. (This reflects practice in <<isoiecdir2>>.)
+`figure`:: Zero or more embedded figures. (This reflects practice in e.g. <<isoiecdir2>>, and subfigures are intended to be mutually exclusive with `image`, `source`: the latter are intended for leaf node figures.)
+`unnumbered`:: An optional boolean attribute indicating that the figure should be excluded from any automatic numbering of figures in the document.
+
+
+[[basicsourcecode]]
+==== Sourcecode
+
+Sourcecode blocks are wrappers for computer code or comparable text. They contain the following elements:
+
+`name`:: A label for the source code.
+`filename`:: A file name associated with the source code (and which could be used to extract the source code fragment to from the document, or to populate the source code fragment with from the external file, in automated processing of the document).
+`lang`:: The computer language or other notational convention that the source code is expressed in.
+`content`:: The computer code or other such text presented in the block, as a single unformatted string. (The string should be treated as preformatted text, with whitespace treated as significant.)
+`callouts`:: Zero or more cross-references (<<crossreferences>>); these are intended to be embedded within the `content` string, and link to annotations.
+`calloutAnnotations`:: These are annotations to the source code; each annotation consists of zero or more paragraphs, and is intended to be referenced by a callout within the source code.
+`unnumbered`:: An optional boolean attribute indicating that the sourcecode block should be excluded from any automatic numbering of sourcecode blocks in the document.
+
+[[basicformula]]
+==== Formula
+
+Formula blocks are wrappers for mathematical or other formulas. They contain the following elements:
+
+`stem`:: A STEM element (<<textelements>>), constituting the content of the formula
+`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the formula. (This reflects practice in <<isoiecdir2>>.)
+`unnumbered`:: An optional boolean attribute indicating that the formula should be excluded from any automatic numbering of formulas in the document.
+
+[[basicliteral]]
+==== Preformatted Blocks
+
+Preformatted blocks are wrappers for text to be rendered with fixed-width typeface, and preserving spaces including line breaks. They are intended for a restricted number of functions, most typically ASCII Art (which is still in prominent use in some standards documents), and computer output. In most cases, Sourcecode blocks (<<basicsourcecode>>) is more appropriate in markup, as it is more clearly motivated semantically.
+
+It contains the following elements (which are a subset of the elements of Sourcecode blocks):
+
+`name`:: A label for the preformatted text.
+`content`:: The preformatted text presented in the block, as a single unformatted string. (Whitespace is treated as significant.)
+
+[[basicexample]]
+==== Example
+
+Example blocks are wrappers for open-ended example text. They consist of a combination of any of the following blocks:
+
+* Formula
+* List
+* Blockquote (which is how generic text is included in an example)
+* Sourcecode
+* Paragraph
+
+It also contains the following elements:
+
+`unnumbered`:: An optional boolean attribute indicating that the example should be excluded from any automatic numbering of examples in the document.
+
+

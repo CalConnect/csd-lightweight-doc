@@ -1,0 +1,160 @@
+[[change-models]]
+== Change models
+
+=== General
+
+The change models are provided in _BasicDocument_ to enable changes to be
+applied incrementally towards a _BasicDocument_ in a defined manner.
+
+
+.Basic Document model: Changes
+[plantuml]
+....
+include::../basicdoc-models/models/Changes.wsd[]
+....
+
+
+=== Change
+
+The _Change_ model defines an action to be performed on an element within _BasicDocument_.
+
+It contains the following attributes:
+
+`target`::  The element that this action should be applied to.
+`identifier`::  A unique identifier of this change.
+`parentIdentifier`::  One or more unique identifiers of _Change_ objects, that this change is supposed to follow after.
+`contribMetadata`::  Metadata of the contributor, see <<contributionelementmetadata>>.
+
+
+=== Change set
+
+The _ChangeSet_ model defines a collection of _Change_ data, and specifies
+a unique identifier that identifies the _BasicDocument_ where this
+_ChangeSet_ should be applied to.
+
+`changes`:: The set of _Change_ data.
+`documentIdentifier`:: The unique identifier that identifies the _BasicDocument_
+where this _ChangeSet_ should be applied to.
+
+
+=== Unique identifier
+
+The unique identifier is used to uniquely identify a _BasicDocument_.
+
+It contains the attribute:
+
+`value`:: A string that uniquely identifies a _BasicDocument_.
+
+
+=== Content change
+
+==== General
+
+The _ContentChange_ model defines possible actions
+that involve modification of content within a _BasicDocument_
+data element.
+
+==== Content change action
+
+The _ContentChangeAction_ model is used to indicate the actual content
+changes that applies to the specified portion of textual content.
+This is used both by the _ContentModify_ and _AttributeModify_ models
+as their content are treated as pure text.
+
+It provides the following attributes:
+
+`action`:: A _ContentAction_ value, where it could be either `insert` or `delete`,
+  indicating text to be inserted or deleted from the content.
+
+`from`:: An `Integer` that specifies the beginning cursor position of a textual change.
+`to`:: An `Integer` that specifies the ending cursor position of a textual change.
+`text`:: In the case of an `insert`, a `String` to be inserted or replace the substring referred to by `from` to `to`.
+`length`:: In the case of a `delete`, an `Integer` to indicate how many characters to be removed from the `from` position.
+  In the case of an `insert`, an `Integer` to indicate the length of the `text` attribute.
+
+
+==== Content modify
+
+The _ContentModify_ class provides a container for a multiple _ContentChangeAction_ data.
+
+It has the following attribute:
+
+`actions`:: One or more `ContentChangeAction` data
+
+
+=== Attribute change
+
+
+The _AttributeChange_ model defines possible actions
+that involve modification of an attribute within a _BasicDocument_
+data element.
+
+==== Attribute change action
+
+Similar to _ContentChangeAction_ which it inherits from,
+the _AttributeChangeAction_ class is used to specify an
+actual change to an attribute.
+
+It has the following attribute:
+
+`attributeId`:: A `String` that identifies the attribute where the attribute change
+should apply to.
+
+
+==== Attribute modify
+
+The _AttributeModify_ class provides a container for a multiple _AttributeChangeAction_ data.
+
+It has the following attribute:
+
+`actions`:: One or more `AttributeChangeAction` data
+
+// TODO: This seems to only handle a string, not changing attribute name or attribute value?!
+
+
+=== Node change
+
+==== General
+
+The _NodeChange_ model defines possible actions that involve
+modification of data elements at the node level within a
+_BasicDocument_.
+
+The `target` attribute inherited from the _Change_ model indicates
+the node this _NodeChange_ action applies to.
+
+
+==== Node insert
+
+The _NodeInsert_ class specifies the insertion
+of a data node in a _BasicDocument_.
+
+It has the following attribute:
+
+`content`:: A data element conforming to _BasicElement_ to be inserted into the specified _BasicDocument_.
+
+
+==== Node delete
+
+The _NodeDelete_ class specifies the deletion of a data node in a _BasicDocument_.
+
+It has the following attributes:
+
+`hashValue`:: An optional string that contains the hash value of the node to be deleted for verification purposes.
+
+
+==== Node move
+
+The _NodeMove_ class specifies moving of a particular node in a _BasicDocument_
+to another location within the same _BasicDocument_.
+
+It has the following attributes:
+
+`positionOld`:: A `ReferenceToIdElement` that indicates the position of the node's parent.
+  While this seems redundant to the `target` attribute inherited from the _Change_ model,
+  it is useful for verifying that the location has not changed.
+
+`positionNew`:: A `ReferenceToIdElement` that indicates the new parent or sibling of the node.
+
+
+

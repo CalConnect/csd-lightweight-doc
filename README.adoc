@@ -1,0 +1,72 @@
+= CalConnect Standard: Lightweight document -- Document metamodel
+
+This work item belongs to TC FREEBUSY.
+
+image:https://travis-ci.com/CalConnect/csd-lightweight-doc.svg?branch=master["Build Status", link="https://travis-ci.com/calconnect/csd-lightweight-doc"]
+
+This document is available in its rendered forms here:
+
+* https://calconnect.github.io/csd-lightweight-doc/cc-36010.html[CalConnect Standard: Lightweight document -- Document metamodel (HTML)]
+* https://calconnect.github.io/csd-lightweight-doc/cc-36010.pdf[PDF]
+* https://calconnect.github.io/csd-lightweight-doc/cc-36010.xml[Metanorma XML]
+* https://calconnect.github.io/csd-lightweight-doc/cc-36010.rxl[Relaton XML (Bibliographic item)]
+
+
+* https://calconnect.github.io/csd-lightweight-doc/iso-36010.html[IETF: Lightweight document -- Document metamodel (HTML)]
+* https://calconnect.github.io/csd-lightweight-doc/iso-36010.doc[ISO: Word]
+* https://calconnect.github.io/csd-lightweight-doc/iso-36010.xml[ISO: XML]
+* https://calconnect.github.io/csd-lightweight-doc/iso-36010.alt.html[ISO: HTML Alt]
+
+
+== Fetching the document
+
+[source,sh]
+----
+git clone https://github.com/CalConnect/csd-lightweight-doc/
+----
+
+== Installing Build Tools
+
+See https://www.metanorma.com/author/topics/install/
+
+
+== Running via Docker or locally
+
+If you have installed the build tools locally, and wish to run the
+locally-installed compilation tools, there is nothing further to set.
+
+If you don't want to deal with local dependencies, use the docker
+version by:
+
+[source,sh]
+----
+export METANORMA_DOCKER=1
+----
+
+The `Makefile` will automatically choose the proper command to
+execute.
+
+
+== Building The Document
+
+[source,sh]
+----
+make clean all
+----
+
+The following outputs will be built:
+
+* CSD XML (https://github.com/calconnect/metanorma-model-csd) (`[filename].xml`)
+* HTML (`[filename].html`)
+* PDF (`[filename].pdf`)
+* Word DOC (`[filename].doc`)
+
+
+== Iterating the document
+
+[source,sh]
+----
+make html
+open cc-*.html
+----
+

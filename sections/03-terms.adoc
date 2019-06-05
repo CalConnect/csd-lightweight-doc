@@ -1,0 +1,49 @@
+
+== Terms and definitions
+
+[[term_class]]
+=== class
+
+structure containing a description of an entity in terms of its components
+
+=== subclass
+
+_class_ (<<term_class>>) which inherits from another class its component descriptions, and optionally adds to them its own component descriptions
+
+
+[[term_documentmodel]]
+=== document model
+
+[alt]#model#
+
+formal specification of the structure of a document in terms of its components and their arrangement, expressed through _classes_ (<<term_class>>)
+
+[[term_paragraph]]
+=== paragraph
+
+subdivision of running text, normally run on throughout, that is separated from text before and after by a change of line and stands below any chapters or sections (<<term_section>>)
+
+[.source]
+<<iso5127,clause 3.5.8.07>>
+
+[[term_block]]
+=== block
+
+_paragraph_ (<<term_paragraph>>)-level grouping of text
+
+=== inline element
+
+grouping of text that can be contained within a _paragraph_ (<<term_paragraph>>), including plain strings
+
+[[term_section]]
+=== section
+
+hierarchical subdivision of a document, consisting of one or more _blocks_ (<<term_block>>), and/or one or more sections
+
+=== identifier
+
+character, or group of characters, used to identify or name an item of data and possibly to indicate certain properties of that item
+
+[.source]
+<<IEV,714-21-07>>
+
