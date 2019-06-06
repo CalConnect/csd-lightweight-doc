@@ -1,7 +1,9 @@
+# Auto-generated !!! Do not edit it manually
+# use ci-master https://github.com/metanorma/metanorma-build-scripts
 sudo: required
 language: ruby
 rvm:
-  - 2.5.1
+  - 2.5.5
 cache: bundler
 before_install:
   - travis_retry sudo apt-get update
@@ -16,4 +18,4 @@ env:
     - PLANTUML_URL=http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 script:
   - plantuml -testdot
-  - make clean all publish deploy
+  - make clean all publish
