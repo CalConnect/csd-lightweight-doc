@@ -15,7 +15,7 @@
 :givenname: Ronald
 :fullname_2: Jeffrey Lau
 :surname_2: Lau
-:givenname_2: Jeffrey Lau
+:givenname_2: Jeffrey
 :fullname_3: Nick Nicholas
 :surname_3: Nicholas
 :givenname_3: Nick
