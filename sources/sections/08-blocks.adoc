@@ -23,10 +23,7 @@ Examples (<<basicexample>>),
 Preformatted blocks (<<basicliteral>>)
 
 .Basic Document model: Block
-[plantuml]
-....
-include::../basicdoc-models/models/Blocks.wsd[]
-....
+image::basicdoc-models/images/Blocks.png[]
 
 
 [[basicpara]]
@@ -43,10 +40,7 @@ Paragraphs have the following subclass:
 * _Paragraph With Footnote_, which can also contain footnotes (<<footnote>>). While most paragraphs in a document can contain footnotes, the distinction is necessary, as footnotes are not appropriate for all instances of paragraph content in a document (e.g. sourcecode annotations) (<<basicsourcecode>>).
 
 .Basic Document model: Paragraph
-[plantuml]
-....
-include::../basicdoc-models/models/Paragraphs.wsd[]
-....
+image::basicdoc-models/images/Paragraphs.png[]
 
 [[basicmultipara]]
 === Multi-paragraph blocks
@@ -67,10 +61,7 @@ NOTE: If the `appliesTo` identifier of a Review block is absent, the comment app
 NOTE: Admonition notes are modelled to be distinct from notes under sections or blocks.
 
 .Basic Document model: Multi-paragraph Block
-[plantuml]
-....
-include::../basicdoc-models/models/MultiParagraphs.wsd[]
-....
+image::basicdoc-models/images/MultiParagraphs.png[]
 
 [[basictable]]
 === Table
@@ -95,10 +86,7 @@ _Table cells_ contain either zero or more paragraphs with footnotes (<<basicpara
 `align`:: Textual alignment of the cell.
 
 .Basic Document model: Table
-[plantuml]
-....
-include::../basicdoc-models/models/Tables.wsd[]
-....
+image::basicdoc-models/images/Tables.png[]
 
 [[basiclist]]
 === List
@@ -114,10 +102,7 @@ Three subclasses of List are modelled.
 * _Definition lists_ override the definition of the List Item to be a pair of `item` (zero or more text elements: <<textelements>>) and `definition` (zero or more paragraphs with footnotes: <<basicpara>>).
 
 .Basic Document model: List
-[plantuml]
-....
-include::../basicdoc-models/models/Lists.wsd[]
-....
+image::basicdoc-models/images/Lists.png[]
 
 
 [[supporting-blocks]]
@@ -128,10 +113,7 @@ include::../basicdoc-models/models/Lists.wsd[]
 Functionally, figures, sourcecode, formulas, preformatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
 
 .Basic Document model: Figure, Sourcecode, Formula, Example
-[plantuml]
-....
-include::../basicdoc-models/models/AncillaryBlocks.wsd[]
-....
+image::basicdoc-models/images/AncillaryBlocks.png[]
 
 
 [[basicfigure]]

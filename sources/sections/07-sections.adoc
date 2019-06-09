@@ -24,7 +24,4 @@ NOTE: In the _BasicDocument_ model, a section can contain both blocks of text an
 the co-occurrence of text and subsections in a clause (or in a section) is proscribed as "`hanging paragraphs`": in order for text to be clearly identifiable by section number, those models prevent text and subsections from being siblings. That proscription is modelled as an override of this model specific to Standards documents.
 
 .Basic Document model: Section
-[plantuml]
-....
-include::../basicdoc-models/models/Sections.wsd[]
-....
+image::basicdoc-models/images/Sections.png[]

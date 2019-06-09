@@ -8,10 +8,7 @@ applied incrementally towards a _BasicDocument_ in a defined manner.
 
 
 .Basic Document model: Changes
-[plantuml]
-....
-include::../basicdoc-models/models/Changes.wsd[]
-....
+image::basicdoc-models/images/Change.png[]
 
 
 === Change

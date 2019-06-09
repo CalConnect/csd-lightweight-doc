@@ -1,4 +1,4 @@
-= Metanorma
+= Lightweight document -- Document metamodel
 :docnumber: 36010
 :tc-document-number: 9999
 :edition: 1
@@ -28,7 +28,7 @@
 :data-uri-image:
 :docfile: iso-36010.adoc
 :mn-document-class: iso
-:mn-output-extensions: xml,html,doc,html_alt
+:mn-output-extensions: xml,html,doc,html_alt,rxl
 
 include::sections-iso/00-foreword.adoc[]
 

@@ -202,6 +202,10 @@ GEM
     relaton-bib (0.1.6)
       addressable
       nokogiri (~> 1.8.4)
+    relaton-cli (0.1.10)
+      liquid
+      relaton (~> 0.3)
+      thor
     roman-numerals (0.3.0)
     ruby-jing (0.0.1)
       optout (>= 0.0.2)
@@ -233,6 +237,7 @@ PLATFORMS
 DEPENDENCIES
   metanorma
   metanorma-cli
+  relaton-cli
 
 BUNDLED WITH
    2.0.1

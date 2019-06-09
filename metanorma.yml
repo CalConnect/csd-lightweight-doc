@@ -1,0 +1,8 @@
+---
+metanorma:
+  deploy:
+    email: "travis-ci@metanorma.org"
+relaton:
+  collection:
+    name: Lightweight document -- Document metamodel
+    organization: CalConnect/ISO

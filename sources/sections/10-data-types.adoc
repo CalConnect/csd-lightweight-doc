@@ -16,10 +16,7 @@ The following basic types are used in the definition of the _BasicDocument_ mode
 * Formatted Strings, specifying a Localised String with a `format` attribute, in order to admit markup into Strings (whether XML-based or not).
 
 .Basic Document model: Data Types
-[plantuml]
-....
-include::../basicdoc-models/models/DataTypes.wsd[]
-....
+image::basicdoc-models/images/DataTypes.png[]
 
 
 [[contributionelementmetadata]]
@@ -32,8 +29,5 @@ In addition to the Basic Data Values, the _BasicDocument_ model defines a contai
 `inegrityValue`:: A digital signature of the contribution, consisting of a `hash` value and a `signature`, with an associated `publicKey`.
 
 .Basic Document model: Contribution Element Metadata
-[plantuml]
-....
-include::../basicdoc-models/models/ContribMetadata.wsd[]
-....
+image::basicdoc-models/images/ContribMetadata.png[]
 

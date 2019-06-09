@@ -6,9 +6,6 @@ The modelling of `bibdata` follows the _BibliographicItem_ class in <<relaton>>,
 The `bibdata` class allows the _BibliographicItem_ class to be extended with metadata specific to a document class, which appears as document metadata rather than as citation data; this information is modelled in `BibDataExtensionType`. The only extension point modelled as generically applicable in the Basic Document model is the document type, which is populated in the generic instance with the single value "document". It is assumed that particular specialisations of the document model will substitute  their own enumerations of particular subclasses of document, which will be more granular than the intentionally generic classes of document modelled in <<relaton>>.
 
 .Basic Document model: Bibdata
-[plantuml]
-....
-include::../basicdoc-models/models/BibData.wsd[]
-....
+image::basicdoc-models/images/BibData.png[]
 
 

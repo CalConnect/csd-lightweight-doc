@@ -15,8 +15,4 @@ The _BasicDocument_ model treats all documents as collections of _sections_ (<<b
 
 
 .Basic Document model: Document
-[plantuml]
-....
-include::../basicdoc-models/models/BasicDocument.wsd[]
-....
-
+image::basicdoc-models/images/BasicDocument.png[]

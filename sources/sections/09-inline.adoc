@@ -40,10 +40,7 @@ Text Elements also include the STEM element, representing mathematical and other
 
 
 .Basic Document model: Text Elements
-[plantuml]
-....
-include::../basicdoc-models/models/TextElements.wsd[]
-....
+image::basicdoc-models/images/TextElements.png[]
 
 === Empty Elements
 
@@ -54,10 +51,7 @@ The following elements are subclasses of Basic Element that contain no text, and
 * Horizontal Rule (corresponding to HTML `hr`)
 
 .Basic Document model: Empty Elements
-[plantuml]
-....
-include::../basicdoc-models/models/EmptyElements.wsd[]
-....
+image::basicdoc-models/images/EmptyElements.png[]
 
 
 [[image]]
@@ -85,10 +79,7 @@ There are two subclasses of ID Elements in the _BasicDocument_ model:
 NOTE: The _BasicDocument_ model does not encompass audio and video files, but any extensions to the model would treat them likewise as ID Elements.
 
 .Basic Document model: ID Elements
-[plantuml]
-....
-include::../basicdoc-models/models/IdElements.wsd[]
-....
+image::basicdoc-models/images/IdElements.png[]
 
 
 [[crossreferences]]

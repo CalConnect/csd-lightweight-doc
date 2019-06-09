@@ -1,5 +1,4 @@
-= CalConnect Standard: Lightweight document -- Document metamodel
-:title: Lightweight document -- Document metamodel
+= Lightweight document -- Document metamodel
 :docnumber: 36010
 :copyright-year: 2019
 :language: en
@@ -25,7 +24,7 @@
 :xrefstyle: short
 :docfile: cc-36010.adoc
 :mn-document-class: csd
-:mn-output-extensions: xml,html,pdf
+:mn-output-extensions: xml,html,pdf,rxl
 :local-cache-only:
 :data-uri-image:
 
