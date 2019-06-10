@@ -6,17 +6,7 @@ image:https://travis-ci.com/CalConnect/csd-lightweight-doc.svg?branch=master["Bu
 
 This document is available in its rendered forms here:
 
-* https://calconnect.github.io/csd-lightweight-doc/cc-36010.html[CC: CalConnect Standard: Lightweight document -- Document metamodel (HTML)]
-* https://calconnect.github.io/csd-lightweight-doc/cc-36010.pdf[CC: PDF]
-* https://calconnect.github.io/csd-lightweight-doc/cc-36010.xml[CC: Metanorma XML]
-* https://calconnect.github.io/csd-lightweight-doc/cc-36010.rxl[CC: Relaton XML (Bibliographic item)]
-
-
-* https://calconnect.github.io/csd-lightweight-doc/iso-36010.html[ISO: Lightweight document -- Document metamodel (HTML)]
-* https://calconnect.github.io/csd-lightweight-doc/iso-36010.doc[ISO: Word]
-* https://calconnect.github.io/csd-lightweight-doc/iso-36010.xml[ISO: XML]
-* https://calconnect.github.io/csd-lightweight-doc/iso-36010.alt.html[ISO: HTML Alt]
-
+* https://calconnect.github.io/csd-lightweight-doc/[CC/ISO: Lightweight document -- Document metamodel (HTML)]
 
 == Fetching the document
 
