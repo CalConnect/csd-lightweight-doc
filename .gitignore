@@ -2,13 +2,3 @@
 .swp
 .tmp.xml
 
-# ISO files
-iso-*.html
-iso-*.doc
-iso-*.xml
-iso-*_files
-~*.doc
-~*.docx
-
-# relaton cache
-relaton/cache/*
