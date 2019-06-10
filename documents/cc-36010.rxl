@@ -1,0 +1,63 @@
+<bibdata type="standard">
+  <title language="en" format="text/plain">Lightweight document — Document metamodel</title>
+  <docidentifier type="csd">CC/WD 36010:2019</docidentifier>
+  <docnumber>36010</docnumber>
+  <date type="published">
+    <on>2019-06-05</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Ronald Tse</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Jeffrey Lau</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Nick Nicholas</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <version>
+    <revision-date>2019-06-05</revision-date>
+    
+  </version>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">working-draft</status>
+  <copyright>
+    <from>2019</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee>VCARD</technical-committee>
+  </editorialgroup>
+</bibdata>

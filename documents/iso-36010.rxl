@@ -1,0 +1,55 @@
+<bibdata type="international-standard">
+  <title>
+    <title-intro language="en" format="text/plain">Lightweight document</title-intro>
+    <title-main language="en" format="text/plain">Document metamodel</title-main>
+  </title>
+  <title>
+    <title-intro language="fr" format="text/plain">Document léger</title-intro>
+    <title-main language="fr" format="text/plain">Métamodèle des documents</title-main>
+    
+  </title>
+  <docidentifier type="iso">ISO/NWIP 36010</docidentifier>
+  <docidentifier type="iso-structured">
+    <project-number>ISO 36010</project-number>
+  </docidentifier>
+  <docnumber>36010</docnumber>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <version>
+    
+  </version>
+  <language>en</language>
+  <script>Latn</script>
+  <status>
+    <stage>10</stage>
+    <substage>92</substage>
+  </status>
+  <copyright>
+    <from>2019</from>
+    <owner>
+      <organization>
+        <name>International Organization for Standardization</name>
+        <abbreviation>ISO</abbreviation>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <technical-committee number="154" type="TC">Processes, data elements and documents in commerce, industry and administration</technical-committee>
+    <subcommittee/>
+    <workgroup number="4" type="WG">e-Documents</workgroup>
+    <secretariat>SAC</secretariat>
+  </editorialgroup>
+</bibdata>
