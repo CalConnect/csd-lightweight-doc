@@ -52,7 +52,9 @@ The following classes of block are modelled as containing zero or more paragraph
 
 //, and it is motivated by the separate inclusion of `author` as an attribute in blockquotes in Asciidoctor.
 
-* _Admonition_, which captures sidebars to the main text conveying particular warnings to the reader. The Admonition block includes a name (title) and a type of admonition; the defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, and Caution_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
+* _Admonition_, which captures sidebars to the main text conveying particular warnings or supplementary text to the reader. The Admonition block includes a name (title), a class, a URI (in case the admonition is available as a separate external document), and a type of admonition. The type of admonition determines the rendering of the admonition; the class allows different runs of admonitions to be labelled and autonumbered differently, even if they are of the same type. The defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, Caution, and Statement_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.) 
+
+NOTE: Statement is intended for typographically separate statements in mathematics, such as propositions, proofs, or theorems. Statement conflates all of these for rendering, while Proposition, Proof, Theorem etc. can be treated as distinct classes.
 
 * [[review]]_Review_, which is intended to capture reviewer comments about some text in the document. The Review block includes the following attributes: an optional string identifying the `reviewer` who offered the comment; an optional `date` when the comment was made; a mandatory identifier for the start of the text to which the comment applies (`appliesFrom`), and an optional identifier for the end of the text to which the comment applies (`appliesTo`).
 
@@ -75,6 +77,7 @@ Tables are modelled following the same principles as HTML tables. They contain t
 `foot`:: Zero or more table rows constituting the table footer.
 `definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the table. (This reflects practice in standards documents such as <<isoiecdir2>>.)
 `alt`:: Alternate text to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
+`uri`:: a URI (in case the admonition is available as a separate external document), 
 `unnumbered`:: An optional boolean attribute indicating that the table should be excluded from any automatic numbering of tables in the document.
 
 _Table rows_ are defined as a sequence of zero or more header cells and data cells (corresponding to HTML `th` and `td`), both classes being instances of table cells.
@@ -122,6 +125,7 @@ image::basicdoc-models/images/AncillaryBlocks.png[]
 Figures are wrappers for images, and may themselves contain figures (_Subfigure_ class). They contain the following elements, all of which are optional:
 
 `name`:: A label for the figure.
+`class`:: A class for the figure; this is to allow diffent classes of figure (e.g. _Plate_, _Chart_, _Diagram_) to be autonumbered and captioned differently.
 `image`:: An image (<<image>>).
 `source`:: A URI or other reference intended to link to an externally hosted image (or equivalent).
 `definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the figure. (This reflects practice in <<isoiecdir2>>.)

@@ -34,7 +34,14 @@ The following elements indicate formatting, and have no further attributes:
 * Superscript (corresponding to HTML `sup`)
 * Subscript (corresponding to HTML `sub`)
 * Strike (corresponding to HTML 4 `s`)
+* Underline (corresponding to HTML 4 `u`)
 * Small Caps
+
+The following elements are used for Ruby annotations in East Asian languages, and correspond to their HTML 5 equivalents;
+
+* ruby
+* rt
+* rp
 
 Text Elements also include the STEM element, representing mathematical and other formulas. This consists of a `type`, indicating which language is used to express the formula, and the content of the formula itself. By default the _BasicDocument_ model allows AsciiMath and MathML in STEM elements.
 
@@ -63,20 +70,27 @@ There are two subclasses of ID Elements in the _BasicDocument_ model:
 
 * _Bookmarks_ are intended as anchors for cross-references which do not have scope over blocks or sections. Anchors within a block under the _BasicDocument_ model cannot span across a number of inline elements; bookmarks are intended as point anchors. For that reason, the Review block (<<review>>) has a starting reference and an optional ending reference, which can be bookmarks as well as block or section references.
 
-* _Images_ are containers for pictorial content. They have the following attribues:
+* _Media_ are containers for media content. They have the following attribues:
 
-`source`:: indicating the URI of the image file
-
-`filename`:: indicating a file name corresponding to the image, to which the image can be extracted if it is represented inline (e.g. in Base64 encoding in the URI)
-
-`type`:: indicating the type of the image file; the Basic Document model constraints this to be one of `SVG`, `JPEG`, `GIF`, `PNG`, `PDF`.
-// TODO: This ought to be relaxed
-
+`source`:: indicating the URI of the media file
+`filename`:: indicating a file name corresponding to the media, to which the media can be extracted if it is represented inline (e.g. in Base64 encoding in the URI)
+`type`:: indicating the type of the image file; the Basic Document model leaves the text to be used here open, but recommends the use of MIME types (<<MIME>>)
 `alt`:: alternate text, supplied for accessibility
+`longdesc`:: URI pointing to more extensive alternate text description, supplied for accessibility
+
+Media files are of three subtypes, each of which has its own element name:
+
+* _Image_ is for image files, and has the following additional attributes
 `height`:: optional attribute, which can be an integer or "auto"
 `width`:: optional attribute, which can be an integer or "auto"
 
-NOTE: The _BasicDocument_ model does not encompass audio and video files, but any extensions to the model would treat them likewise as ID Elements.
+* _Audio_ is for audio files, and has the following additional attributes
+`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media class
+
+* _Video_ is for audio files, and has the following additional attributes
+`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media class
+`height`:: optional attribute, which can be an integer or "auto"
+`width`:: optional attribute, which can be an integer or "auto"
 
 .Basic Document model: ID Elements
 image::basicdoc-models/images/IdElements.png[]
@@ -89,6 +103,7 @@ Reference Elements are inline elements which reference other elements in the doc
 
 `text`:: The optional, unformatted textual content of the reference element.
 `type`:: The type of Reference Element, prescribing how it is to be rendered. The _BasicDocument_ model recognises four types: _inline_ (referencing another element in the same document), _external_ (referencing an external document), _footnote_ (an inline reference to be rendered as a footnote), and _callout_ (an inline reference to be rendered as a callout: <<basicsourcecode>>).
+`alt`:: Alternate text, used for accessibility.
 
 The following subclasses of Reference Elements are modelled.
 

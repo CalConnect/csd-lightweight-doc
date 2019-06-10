@@ -10,3 +10,5 @@
 * [[[iso5127,ISO 5127:2017]]], _Information and documentation — Foundation and vocabulary_
 
 * [[[IEV,IEV]]], _IEV_
+
+* [[[MIME,RFC 2045]]], _Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies_
