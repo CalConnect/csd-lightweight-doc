@@ -1,0 +1,30 @@
+<bibitem id="RFC7991">
+  <fetched>2019-06-04</fetched>
+  <title format="plain" language="en" script="Latn">The "xml2rfc" Version 3 Vocabulary</title>
+  <uri type="src">https://www.rfc-editor.org/info/rfc7991</uri>
+  <docidentifier type="IETF">RFC 7991</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC7991</docidentifier>
+  <date type="published">
+    <on>2016-12</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">P. Hoffman</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>IETF</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <series type="main">
+    <title format="plain" language="en" script="Latn">RFC</title>
+    <number>7991</number>
+  </series>
+</bibitem>

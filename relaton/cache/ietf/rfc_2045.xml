@@ -1,0 +1,44 @@
+<bibitem id="RFC2045">
+  <fetched>2019-07-08</fetched>
+  <title format="plain" language="en" script="Latn">Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</title>
+  <uri type="src">https://www.rfc-editor.org/info/rfc2045</uri>
+  <docidentifier type="IETF">RFC 2045</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC2045</docidentifier>
+  <date type="published">
+    <on>1996-11</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">N. Freed</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>IETF</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">N. Borenstein</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>IETF</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <series type="main">
+    <title format="plain" language="en" script="Latn">RFC</title>
+    <number>2045</number>
+  </series>
+</bibitem>

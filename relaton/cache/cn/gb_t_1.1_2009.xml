@@ -1,0 +1,34 @@
+<bibitem type="standard" id="GB/T1-1">
+  <fetched>2019-06-04</fetched>
+  <title format="text/plain" language="zh" script="Hans">标准化工作导则  第1部分：标准的结构和编写</title>
+  <title format="text/plain" language="en" script="Latn">Directives for standardization - Part 1: The structure and drafting of standards</title>
+  <uri type="src">http://www.std.gov.cn/gb/search/gbDetailed?id=71F772D7D068D3A7E05397BE0A0AB82A</uri>
+  <docidentifier type="Chinese Standard">GB/T 1.1-2009</docidentifier>
+  <date type="published">
+    <on>2009</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name language="en">General Administration of Quality Supervision, Inspection and Quarantine; Standardization Administration of China</name>
+      <name language="zh">中华人民共和国国家质量监督检验检疫总局 中国国家标准化管理委员会</name>
+    </organization>
+  </contributor>
+  <language>zh</language>
+  <script>Hans</script>
+  <status>activated</status>
+  <ics>
+    <code>01.120</code>
+    <text>Standardization. General rules</text>
+  </ics>
+  <gbcommittee type="technical">全国标准化原理与方法标准化技术委员会</gbcommittee>
+  <gbtype>
+    <gbscope>national</gbscope>
+    <gbprefix>GB_national</gbprefix>
+    <gbmandate>recommended</gbmandate>
+  </gbtype>
+  <ccs>
+    <code>A00</code>
+    <text>标准化、质量管理</text>
+  </ccs>
+</bibitem>

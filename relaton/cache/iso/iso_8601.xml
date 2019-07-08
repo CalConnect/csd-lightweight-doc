@@ -1,0 +1,116 @@
+<bibitem type="international-standard" id="ISO8601">
+  <fetched>2019-06-04</fetched>
+  <title format="text/plain" language="en" script="Latn">Data elements and interchange formats -- Information interchange -- Representation of dates and times</title>
+  <title format="text/plain" language="fr" script="Latn">Éléments de données et formats d'échange -- Échange d'information -- Représentation de la date et de l'heure</title>
+  <uri type="src">https://www.iso.org/standard/40874.html</uri>
+  <uri type="obp"/>
+  <uri type="rss">https://www.iso.org/contents/data/standard/04/08/40874.detail.rss</uri>
+  <docidentifier type="ISO">ISO 8601</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <edition>3</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <status>
+    <stage>95</stage>
+    <substage>99</substage>
+  </status>
+  <copyright>
+    <from>2004</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO 8601:2000</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem>
+      <formattedref>ISO 8601-1:2019</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem>
+      <formattedref>ISO 8601-2:2019</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="instance">
+    <bibitem type="international-standard">
+      <fetched>2019-06-04</fetched>
+      <title format="text/plain" language="en" script="Latn">Data elements and interchange formats -- Information interchange -- Representation of dates and times</title>
+      <title format="text/plain" language="fr" script="Latn">Éléments de données et formats d'échange -- Échange d'information -- Représentation de la date et de l'heure</title>
+      <uri type="src">https://www.iso.org/standard/40874.html</uri>
+      <uri type="obp"/>
+      <uri type="rss">https://www.iso.org/contents/data/standard/04/08/40874.detail.rss</uri>
+      <docidentifier type="ISO">ISO 8601:2004</docidentifier>
+      <date type="published">
+        <on>2004</on>
+      </date>
+      <contributor>
+        <role type="publisher"/>
+        <organization>
+          <name>International Organization for Standardization</name>
+          <abbreviation>ISO</abbreviation>
+          <uri>www.iso.org</uri>
+        </organization>
+      </contributor>
+      <edition>3</edition>
+      <language>en</language>
+      <language>fr</language>
+      <script>Latn</script>
+      <abstract format="plain" language="en" script="Latn">ISO 8601:2004 is applicable whenever representation of dates in the Gregorian calendar, times in the 24-hour timekeeping system, time intervals and recurring time intervals or of the formats of these representations are included in information interchange. It includesISO 8601:2004 does not cover dates and times where words are used in the representation and dates and times where characters are not used in the representation.ISO 8601:2004 does not assign any particular meaning or interpretation to any data element that uses representations in accordance with ISO 8601:2004. Such meaning will be determined by the context of the application.</abstract>
+      <status>
+        <stage>95</stage>
+        <substage>99</substage>
+      </status>
+      <copyright>
+        <from>2004</from>
+        <owner>
+          <organization>
+            <name>ISO</name>
+          </organization>
+        </owner>
+      </copyright>
+      <relation type="obsoletes">
+        <bibitem>
+          <formattedref>ISO 8601:2000</formattedref>
+        </bibitem>
+      </relation>
+      <relation type="updates">
+        <bibitem>
+          <formattedref>ISO 8601-1:2019</formattedref>
+        </bibitem>
+      </relation>
+      <relation type="updates">
+        <bibitem>
+          <formattedref>ISO 8601-2:2019</formattedref>
+        </bibitem>
+      </relation>
+      <editorialgroup>
+        <technical_committee number="154" type="TC">ISO/TC 154Processes, data elements and documents in commerce, industry and administration</technical_committee>
+      </editorialgroup>
+      <ics>
+        <code>01.140.30</code>
+        <text>Documents in administration, commerce and industry</text>
+      </ics>
+    </bibitem>
+  </relation>
+  <editorialgroup>
+    <technical_committee number="154" type="TC">ISO/TC 154Processes, data elements and documents in commerce, industry and administration</technical_committee>
+  </editorialgroup>
+  <ics>
+    <code>01.140.30</code>
+    <text>Documents in administration, commerce and industry</text>
+  </ics>
+</bibitem>

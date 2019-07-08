@@ -1,0 +1,223 @@
+<bibitem type="international-standard" id="ISO/IEC10118(allparts)">
+  <fetched>2019-06-04</fetched>
+  <title format="text/plain" language="en" script="Latn">Information technology -- Security techniques</title>
+  <uri type="src">https://www.iso.org/standard/64213.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:64213:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/06/42/64213.detail.rss</uri>
+  <docidentifier type="ISO">ISO/IEC 10118 (all parts)</docidentifier>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Electrotechnical Commission</name>
+      <abbreviation>IEC</abbreviation>
+      <uri>www.iec.ch</uri>
+    </organization>
+  </contributor>
+  <edition>3</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <status>
+    <stage>60</stage>
+    <substage>60</substage>
+  </status>
+  <copyright>
+    <from>2016</from>
+    <owner>
+      <organization>
+        <name>ISO/IEC</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO/IEC 10118-1:2000</formattedref>
+    </bibitem>
+  </relation>
+  <relation type="instance">
+    <bibitem type="international-standard">
+      <fetched>2019-06-04</fetched>
+      <title format="text/plain" language="en" script="Latn">Information technology -- Security techniques -- Hash-functions -- Part 1: General</title>
+      <uri type="src">https://www.iso.org/standard/64213.html</uri>
+      <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:64213:en</uri>
+      <uri type="rss">https://www.iso.org/contents/data/standard/06/42/64213.detail.rss</uri>
+      <docidentifier type="ISO">ISO/IEC 10118-1:2016</docidentifier>
+      <date type="published">
+        <on>2016</on>
+      </date>
+      <contributor>
+        <role type="publisher"/>
+        <organization>
+          <name>International Organization for Standardization</name>
+          <abbreviation>ISO</abbreviation>
+          <uri>www.iso.org</uri>
+        </organization>
+      </contributor>
+      <contributor>
+        <role type="publisher"/>
+        <organization>
+          <name>International Electrotechnical Commission</name>
+          <abbreviation>IEC</abbreviation>
+          <uri>www.iec.ch</uri>
+        </organization>
+      </contributor>
+      <edition>3</edition>
+      <language>en</language>
+      <language>fr</language>
+      <script>Latn</script>
+      <abstract format="plain" language="en" script="Latn">ISO/IEC 10118-1:2016 specifies hash-functions and is therefore applicable to the provision of authentication, integrity and non-repudiation services. Hash-functions map strings of bits of variable (but usually upper bounded) length to fixed-length strings of bits, using a specified algorithm. They can be used for-      reducing a message to a short imprint for input to a digital signature mechanism, and-      committing the user to a given string of bits without revealing this string.NOTE          The hash-functions specified in ISO/IEC 10118 (all parts) do not involve the use of secret keys. However, these hash-functions may be used, in conjunction with secret keys, to build message authentication codes. Message Authentication Codes (MACs) provide data origin authentication as well as message integrity. Techniques for computing a MAC using a hash-function are specified in ISO/IEC 9797‑2 [1].ISO/IEC 10118-1:2016 contains definitions, symbols, abbreviations and requirements that are common to all the other parts of ISO/IEC 10118. The criteria used to select the algorithms specified in subsequent parts of ISO/IEC 10118 are defined in Annex B of this document.</abstract>
+      <status>
+        <stage>60</stage>
+        <substage>60</substage>
+      </status>
+      <copyright>
+        <from>2016</from>
+        <owner>
+          <organization>
+            <name>ISO/IEC</name>
+          </organization>
+        </owner>
+      </copyright>
+      <relation type="obsoletes">
+        <bibitem>
+          <formattedref>ISO/IEC 10118-1:2000</formattedref>
+        </bibitem>
+      </relation>
+      <editorialgroup>
+        <technical_committee number="1" type="TC">ISO/IEC JTC 1/SC 27Information security, cybersecurity and privacy protection</technical_committee>
+      </editorialgroup>
+      <ics>
+        <code>35.030</code>
+        <text>IT Security</text>
+      </ics>
+    </bibitem>
+  </relation>
+  <relation type="partOf">
+    <bibitem type="international-standard">
+      <fetched>2019-06-04</fetched>
+      <title format="text/plain" language="en" script="Latn">Information technology -- Security techniques -- Hash-functions -- Part 1: General</title>
+      <uri type="src">https://www.iso.org/standard/64213.html</uri>
+      <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:64213:en</uri>
+      <uri type="rss">https://www.iso.org/contents/data/standard/06/42/64213.detail.rss</uri>
+      <docidentifier type="ISO">ISO/IEC 10118-1</docidentifier>
+      <contributor>
+        <role type="publisher"/>
+        <organization>
+          <name>International Organization for Standardization</name>
+          <abbreviation>ISO</abbreviation>
+          <uri>www.iso.org</uri>
+        </organization>
+      </contributor>
+      <contributor>
+        <role type="publisher"/>
+        <organization>
+          <name>International Electrotechnical Commission</name>
+          <abbreviation>IEC</abbreviation>
+          <uri>www.iec.ch</uri>
+        </organization>
+      </contributor>
+      <edition>3</edition>
+      <language>en</language>
+      <language>fr</language>
+      <script>Latn</script>
+      <status>
+        <stage>60</stage>
+        <substage>60</substage>
+      </status>
+      <copyright>
+        <from>2016</from>
+        <owner>
+          <organization>
+            <name>ISO/IEC</name>
+          </organization>
+        </owner>
+      </copyright>
+      <relation type="obsoletes">
+        <bibitem>
+          <formattedref>ISO/IEC 10118-1:2000</formattedref>
+        </bibitem>
+      </relation>
+      <relation type="instance">
+        <bibitem type="international-standard">
+          <fetched>2019-06-04</fetched>
+          <title format="text/plain" language="en" script="Latn">Information technology -- Security techniques -- Hash-functions -- Part 1: General</title>
+          <uri type="src">https://www.iso.org/standard/64213.html</uri>
+          <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:64213:en</uri>
+          <uri type="rss">https://www.iso.org/contents/data/standard/06/42/64213.detail.rss</uri>
+          <docidentifier type="ISO">ISO/IEC 10118-1:2016</docidentifier>
+          <date type="published">
+            <on>2016</on>
+          </date>
+          <contributor>
+            <role type="publisher"/>
+            <organization>
+              <name>International Organization for Standardization</name>
+              <abbreviation>ISO</abbreviation>
+              <uri>www.iso.org</uri>
+            </organization>
+          </contributor>
+          <contributor>
+            <role type="publisher"/>
+            <organization>
+              <name>International Electrotechnical Commission</name>
+              <abbreviation>IEC</abbreviation>
+              <uri>www.iec.ch</uri>
+            </organization>
+          </contributor>
+          <edition>3</edition>
+          <language>en</language>
+          <language>fr</language>
+          <script>Latn</script>
+          <abstract format="plain" language="en" script="Latn">ISO/IEC 10118-1:2016 specifies hash-functions and is therefore applicable to the provision of authentication, integrity and non-repudiation services. Hash-functions map strings of bits of variable (but usually upper bounded) length to fixed-length strings of bits, using a specified algorithm. They can be used for-      reducing a message to a short imprint for input to a digital signature mechanism, and-      committing the user to a given string of bits without revealing this string.NOTE          The hash-functions specified in ISO/IEC 10118 (all parts) do not involve the use of secret keys. However, these hash-functions may be used, in conjunction with secret keys, to build message authentication codes. Message Authentication Codes (MACs) provide data origin authentication as well as message integrity. Techniques for computing a MAC using a hash-function are specified in ISO/IEC 9797‑2 [1].ISO/IEC 10118-1:2016 contains definitions, symbols, abbreviations and requirements that are common to all the other parts of ISO/IEC 10118. The criteria used to select the algorithms specified in subsequent parts of ISO/IEC 10118 are defined in Annex B of this document.</abstract>
+          <status>
+            <stage>60</stage>
+            <substage>60</substage>
+          </status>
+          <copyright>
+            <from>2016</from>
+            <owner>
+              <organization>
+                <name>ISO/IEC</name>
+              </organization>
+            </owner>
+          </copyright>
+          <relation type="obsoletes">
+            <bibitem>
+              <formattedref>ISO/IEC 10118-1:2000</formattedref>
+            </bibitem>
+          </relation>
+          <editorialgroup>
+            <technical_committee number="1" type="TC">ISO/IEC JTC 1/SC 27Information security, cybersecurity and privacy protection</technical_committee>
+          </editorialgroup>
+          <ics>
+            <code>35.030</code>
+            <text>IT Security</text>
+          </ics>
+        </bibitem>
+      </relation>
+      <editorialgroup>
+        <technical_committee number="1" type="TC">ISO/IEC JTC 1/SC 27Information security, cybersecurity and privacy protection</technical_committee>
+      </editorialgroup>
+      <ics>
+        <code>35.030</code>
+        <text>IT Security</text>
+      </ics>
+    </bibitem>
+  </relation>
+  <editorialgroup>
+    <technical_committee number="1" type="TC">ISO/IEC JTC 1/SC 27Information security, cybersecurity and privacy protection</technical_committee>
+  </editorialgroup>
+  <ics>
+    <code>35.030</code>
+    <text>IT Security</text>
+  </ics>
+  <allparts>true</allparts>
+</bibitem>
