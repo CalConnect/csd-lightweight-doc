@@ -1,7 +1,7 @@
 
 == Metadata and bibliographic information models
 
-The modelling of `bibdata` follows the _BibliographicItem_ class in <<relaton>>, and readers are referred to that specification. The  _BibliographicItem_ class is intended to capture document citations, and to be applicable to any document type, without any further specialisation; that is because a document can cite documents of any type.
+The modelling of `bibdata` follows the _BibliographicItem_ class in <<relaton>>, and readers are referred to that specification. The  _BibliographicItem_ class is intended to capture document citations, and to be applicable to any document type, without any further specialization; that is because a document can cite documents of any type.
 
 The `bibdata` class allows the _BibliographicItem_ class to be extended with metadata specific to a document class, which appears as document metadata rather than as citation data; this information is modelled in `BibDataExtensionType`. The only extension point modelled as generically applicable in the Basic Document model is the document type, which is populated in the generic instance with the single value "document". It is assumed that particular specialisations of the document model will substitute  their own enumerations of particular subclasses of document, which will be more granular than the intentionally generic classes of document modelled in <<relaton>>.
 

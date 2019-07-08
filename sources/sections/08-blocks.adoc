@@ -4,13 +4,13 @@
 
 === General
 
-Blocks of text are all modelled as subclasses of the _Basic Block_ class, which has the following attributes common to all blocks:
+Blocks of text are all modelled as subclasses of the _BasicBlock_ class, which has the following attributes common to all blocks:
 
 `id`:: an optional identifier for the block, to be used for cross-references.
 `notes`:: any notes whose scope is the block. Notes are modelled as a sequence of zero or more paragraphs.
 `contributionelementmetadata`:: attribution of the block to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
 
-The _BasicDocument_ model recognises the following classes of block:
+The _BasicDocument_ model recognizes the following classes of block:
 
 * Paragraphs (<<basicpara>>)
 * Multi-paragraph blocks: Blockquotes, Reviewer comments, Admonitions (<<basicmultipara>>)
@@ -20,7 +20,7 @@ The _BasicDocument_ model recognises the following classes of block:
 Sourcecode (<<basicsourcecode>>),
 Formulas (<<basicformula>>),
 Examples (<<basicexample>>),
-Preformatted blocks (<<basicliteral>>)
+Pre-formatted blocks (<<basicliteral>>)
 
 .Basic Document model: Block
 image::basicdoc-models/images/Blocks.png[]
@@ -113,7 +113,7 @@ image::basicdoc-models/images/Lists.png[]
 
 ==== General
 
-Functionally, figures, sourcecode, formulas, preformatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
+Functionally, figures, sourcecode, formulas, pre-formatted blocks and examples all play a similar role, as providing illustrative content that is ancillary to the main content. However each class has its own particular structure.
 
 .Basic Document model: Figure, Sourcecode, Formula, Example
 image::basicdoc-models/images/AncillaryBlocks.png[]
@@ -142,7 +142,7 @@ Sourcecode blocks are wrappers for computer code or comparable text. They contai
 `name`:: A label for the source code.
 `filename`:: A file name associated with the source code (and which could be used to extract the source code fragment to from the document, or to populate the source code fragment with from the external file, in automated processing of the document).
 `lang`:: The computer language or other notational convention that the source code is expressed in.
-`content`:: The computer code or other such text presented in the block, as a single unformatted string. (The string should be treated as preformatted text, with whitespace treated as significant.)
+`content`:: The computer code or other such text presented in the block, as a single unformatted string. (The string should be treated as pre-formatted text, with whitespace treated as significant.)
 `callouts`:: Zero or more cross-references (<<crossreferences>>); these are intended to be embedded within the `content` string, and link to annotations.
 `calloutAnnotations`:: These are annotations to the source code; each annotation consists of zero or more paragraphs, and is intended to be referenced by a callout within the source code.
 `unnumbered`:: An optional boolean attribute indicating that the sourcecode block should be excluded from any automatic numbering of sourcecode blocks in the document.
@@ -157,14 +157,14 @@ Formula blocks are wrappers for mathematical or other formulas. They contain the
 `unnumbered`:: An optional boolean attribute indicating that the formula should be excluded from any automatic numbering of formulas in the document.
 
 [[basicliteral]]
-==== Preformatted Blocks
+==== Pre-formatted Blocks
 
-Preformatted blocks are wrappers for text to be rendered with fixed-width typeface, and preserving spaces including line breaks. They are intended for a restricted number of functions, most typically ASCII Art (which is still in prominent use in some standards documents), and computer output. In most cases, Sourcecode blocks (<<basicsourcecode>>) is more appropriate in markup, as it is more clearly motivated semantically.
+Pre-formatted blocks are wrappers for text to be rendered with fixed-width typeface, and preserving spaces including line breaks. They are intended for a restricted number of functions, most typically ASCII Art (which is still in prominent use in some standards documents), and computer output. In most cases, Sourcecode blocks (<<basicsourcecode>>) is more appropriate in markup, as it is more clearly motivated semantically.
 
 It contains the following elements (which are a subset of the elements of Sourcecode blocks):
 
-`name`:: A label for the preformatted text.
-`content`:: The preformatted text presented in the block, as a single unformatted string. (Whitespace is treated as significant.)
+`name`:: A label for the pre-formatted text.
+`content`:: The pre-formatted text presented in the block, as a single unformatted string. (Whitespace is treated as significant.)
 
 [[basicexample]]
 ==== Example

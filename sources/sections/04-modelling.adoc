@@ -5,7 +5,7 @@
 
 The _BasicDocument_ model expresses the structure of generic documents in a lightweight form.
 
-It is deliberately not a detailed document model, unlike DocBook and TEI: it is intended to be a base document model which other document models can map to or specialize upon.
+It is deliberately not designed to fully represent semantics of document formats like DocBook and TEI: the model is intended to be a base document model which other document models can map to or specialize upon, or for the interchange of generic document content.
 
 // For example, the Metanorma document model takes the Basic Document model as its starting point.
 
@@ -41,7 +41,7 @@ NOTE: This constraint is imposed in order to maintain structural simplicity of t
 While it sacrifices some expressive potential, the difference is minor, particularly with regards to the rendering of paragraphs.
 This is a major difference between this model and the more flexible document models in XML-based schemas, such as HTML, TEI-C, and DocBook, which do not have this limitation.
 
-The _BasicDocument_ model is most fleshed out at the level of blocks and inline elements. Specialisation of the model is expected to take place mostly at the level of prescribing particular arrangements of sections.
+The _BasicDocument_ model is most fleshed out at the level of blocks and inline elements. Specialization of the model is expected to take place mostly at the level of prescribing particular arrangements of sections.
 
 // this is the case for the Metanorma use of the Basic Document model.
 

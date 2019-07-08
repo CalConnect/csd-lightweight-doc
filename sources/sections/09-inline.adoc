@@ -23,7 +23,7 @@ Footnotes (<<footnote>>) are a special case of Reference element, which are not 
 
 The modelling of text elements is substantially derived from HTML, and encompasses semantically significant formatting of text. For example, it encompasses italics and boldface (under their semantic guise of `emphasis` and `strong`); but it omits different sizes of font, as information that is typically semantically predictable, and relegated to stylesheets.
 
-All text elements contain a localised string (<<datavalues>>).
+All text elements contain a localized string (<<datavalues>>).
 
 The following elements indicate formatting, and have no further attributes:
 

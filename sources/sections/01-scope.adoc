@@ -1,26 +1,26 @@
 
 == Scope
 
-This document provides a lightweight document metamodel called
-_BasicDocument_ for generic documents.
-It is intended as an interoperable basis that allows systems to interchange
-generic documents while preserving semantics.
+This document provides a reference lightweight document model called
+_BasicDocument_ for generic documents, intended as an
+interoperable basis that allows systems to interchange
+generic document content while preserving semantics.
 
+This document model can be directly utilized to represent
+interchangeable document content, or adopted, superseded or internalized
+by document representation models and formats in order
+to represent document content in other forms.
 
-The modelling of bibliographies and bibliographic citations is part of the reference model,
+The modelling of bibliographies and citations is part of the reference model,
 but is the subject of a separate document, <<relaton>>,
-therefore they are not described in detail in this document.
+and are hence not described in detail in this document.
 
 The following aspects are excluded from scope:
 
-* The specialization and profiling of this model to specialized classes of documents;
+* Specialization and profiling of this model to specialized classes of documents;
 
 * Implementation of the reference model and serialization formats;
 
-* The mapping of the reference model to output formats; and
+* Mapping of the reference model to output formats; and
 
 * Markup schemes and syntaxes that enable creation of documents that fit the reference model.
-
-////
-The modelling of changes to documents is in scope of the _BasicDocument_ model described here, but is not described in this document.
-////

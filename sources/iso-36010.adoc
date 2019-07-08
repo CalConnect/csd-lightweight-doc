@@ -9,7 +9,6 @@
 :title-main-en: Document metamodel
 :title-intro-fr: Document léger
 :title-main-fr: Métamodèle des documents
-:title-part-fr:
 :doctype: international-standard
 :docstage: 10
 :docsubstage: 92

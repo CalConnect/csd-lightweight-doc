@@ -12,8 +12,8 @@ The following basic types are used in the definition of the _BasicDocument_ mode
 * Hash algorithms, as defined in <<iso10118>>.
 * Digital signature algorithms, as defined in <<iso14888>>.
 * Script names, as defined in <<iso15924>>.
-* Localised Strings, specifying a String with optional Language and Script attributes.
-* Formatted Strings, specifying a Localised String with a `format` attribute, in order to admit markup into Strings (whether XML-based or not).
+* Localized Strings, specifying a String with optional Language and Script attributes.
+* Formatted Strings, specifying a Localized String with a `format` attribute, in order to admit markup into Strings (whether XML-based or not).
 
 .Basic Document model: Data Types
 image::basicdoc-models/images/DataTypes.png[]
