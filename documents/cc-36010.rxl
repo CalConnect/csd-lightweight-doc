@@ -48,7 +48,9 @@
   </version>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">working-draft</status>
+  <status>
+    <stage>working-draft</stage>
+  </status>
   <copyright>
     <from>2019</from>
     <owner>
@@ -57,7 +59,10 @@
       </organization>
     </owner>
   </copyright>
-  <editorialgroup>
-    <technical-committee>VCARD</technical-committee>
-  </editorialgroup>
+  <ext>
+    <doctype>standard</doctype>
+    <editorialgroup>
+      <technical-committee>VCARD</technical-committee>
+    </editorialgroup>
+  </ext>
 </bibdata>

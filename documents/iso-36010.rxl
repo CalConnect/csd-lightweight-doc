@@ -1,16 +1,11 @@
-<bibdata type="international-standard">
-  <title>
-    <title-intro language="en" format="text/plain">Lightweight document</title-intro>
-    <title-main language="en" format="text/plain">Document metamodel</title-main>
-  </title>
-  <title>
-    <title-intro language="fr" format="text/plain">Document léger</title-intro>
-    <title-main language="fr" format="text/plain">Métamodèle des documents</title-main>
-  </title>
+<bibdata type="standard">
+  <title language="en" format="text/plain" type="main">Lightweight document — Document metamodel</title>
+  <title language="en" format="text/plain" type="title-intro">Lightweight document</title>
+  <title language="en" format="text/plain" type="title-main">Document metamodel</title>
+  <title language="fr" format="text/plain" type="main">Document léger — Métamodèle des documents</title>
+  <title language="fr" format="text/plain" type="title-intro">Document léger</title>
+  <title language="fr" format="text/plain" type="title-main">Métamodèle des documents</title>
   <docidentifier type="iso">ISO/NWIP 36010</docidentifier>
-  <docidentifier type="iso-structured">
-    <project-number>ISO 36010</project-number>
-  </docidentifier>
   <docnumber>36010</docnumber>
   <contributor>
     <role type="author"/>
@@ -45,10 +40,16 @@
       </organization>
     </owner>
   </copyright>
-  <editorialgroup>
-    <technical-committee number="154" type="TC">Processes, data elements and documents in commerce, industry and administration</technical-committee>
-    <subcommittee/>
-    <workgroup number="4" type="WG">e-Documents</workgroup>
-    <secretariat>SAC</secretariat>
-  </editorialgroup>
+  <ext>
+    <doctype>international-standard</doctype>
+    <editorialgroup>
+      <technical-committee number="154" type="TC">Processes, data elements and documents in commerce, industry and administration</technical-committee>
+      <subcommittee/>
+      <workgroup number="4" type="WG">e-Documents</workgroup>
+      <secretariat>SAC</secretariat>
+    </editorialgroup>
+    <structuredidentifier>
+      <project-number>ISO 36010</project-number>
+    </structuredidentifier>
+  </ext>
 </bibdata>
