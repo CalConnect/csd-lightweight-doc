@@ -91,13 +91,21 @@ image::basicdoc-models/images/Tables.png[]
 They contain the following elements:
 
 `name`:: An optional label for the table.
+
 `head`:: Zero or more table rows constituting the table header.
+
 `body`:: One or more table rows constituting the table body.
+
 `foot`:: Zero or more table rows constituting the table footer.
+
 `definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the table. (This reflects practice in standards documents such as <<isoiecdir2>>.)
+
 `alt`:: Alternate text to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
+
 `uri`:: a URI (in case the admonition is available as a separate external document),
+
 `unnumbered`:: An optional boolean attribute indicating that the table should be excluded from any automatic numbering of tables in the document.
+
 
 ==== Table rows
 
@@ -108,8 +116,11 @@ _Table rows_ are defined as a sequence of zero or more header cells and data cel
 _Table cells_ contain either zero or more paragraphs with footnotes (<<basicpara>>), or zero or more text elements (<<textelements>>). In addition, they have the following optional rendering attributes, which are aligned with HTML:
 
 `colspan`:: Number of columns in the underlying table grid which the cell spans.
+
 `rowspan`:: Number of rows in the underlying table grid which the cell spans.
+
 `align`:: Textual alignment of the cell.
+
 
 
 [[basiclist]]
@@ -146,12 +157,25 @@ image::basicdoc-models/images/AncillaryBlocks.png[]
 Figures are wrappers for images, and may themselves contain figures (_Subfigure_ class). They contain the following elements, all of which are optional:
 
 `name`:: A label for the figure.
-`class`:: A class for the figure; this is to allow diffent classes of figure (e.g. _Plate_, _Chart_, _Diagram_) to be autonumbered and captioned differently.
+
+`class`:: A class for the figure; this is to allow different classes of figure (e.g. _Plate_, _Chart_, _Diagram_) to be auto-numbered and captioned differently.
+
 `image`:: An image (<<image>>).
+
 `source`:: A URI or other reference intended to link to an externally hosted image (or equivalent).
-`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the figure. (This reflects practice in <<isoiecdir2>>.)
+
+`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the figure.
+--
+NOTE: This reflects practice in <<isoiecdir2>>.
+--
+
 `footnotes`:: Optional footnotes specific to the figure. (This reflects practice in <<isoiecdir2>>.)
-`figure`:: Zero or more embedded figures. (This reflects practice in e.g. <<isoiecdir2>>, and subfigures are intended to be mutually exclusive with `image`, `source`: the latter are intended for leaf node figures.)
+
+`figure`:: Zero or more embedded figures.
+--
+NOTE: This reflects practice in e.g. <<isoiecdir2>>, and subfigures are intended to be mutually exclusive with `image`, `source`: the latter are intended for leaf node figures.
+--
+
 `unnumbered`:: An optional boolean attribute indicating that the figure should be excluded from any automatic numbering of figures in the document.
 
 
@@ -161,11 +185,17 @@ Figures are wrappers for images, and may themselves contain figures (_Subfigure_
 Sourcecode blocks are wrappers for computer code or comparable text. They contain the following elements:
 
 `name`:: A label for the source code.
+
 `filename`:: A file name associated with the source code (and which could be used to extract the source code fragment to from the document, or to populate the source code fragment with from the external file, in automated processing of the document).
+
 `lang`:: The computer language or other notational convention that the source code is expressed in.
+
 `content`:: The computer code or other such text presented in the block, as a single unformatted string. (The string should be treated as pre-formatted text, with whitespace treated as significant.)
+
 `callouts`:: Zero or more cross-references (<<crossreferences>>); these are intended to be embedded within the `content` string, and link to annotations.
+
 `calloutAnnotations`:: These are annotations to the source code; each annotation consists of zero or more paragraphs, and is intended to be referenced by a callout within the source code.
+
 `unnumbered`:: An optional boolean attribute indicating that the sourcecode block should be excluded from any automatic numbering of sourcecode blocks in the document.
 
 [[basicformula]]
@@ -174,7 +204,12 @@ Sourcecode blocks are wrappers for computer code or comparable text. They contai
 Formula blocks are wrappers for mathematical or other formulas. They contain the following elements:
 
 `stem`:: A STEM element (<<textelements>>), constituting the content of the formula
-`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the formula. (This reflects practice in <<isoiecdir2>>.)
+
+`definitions`:: An optional definitions list (<<basiclist>>) defining any symbols used in the formula.
+--
+NOTE: This reflects practice in <<isoiecdir2>>.
+--
+
 `unnumbered`:: An optional boolean attribute indicating that the formula should be excluded from any automatic numbering of formulas in the document.
 
 [[basicliteral]]
@@ -185,6 +220,7 @@ Pre-formatted blocks are wrappers for text to be rendered with fixed-width typef
 It contains the following elements (which are a subset of the elements of Sourcecode blocks):
 
 `name`:: A label for the pre-formatted text.
+
 `content`:: The pre-formatted text presented in the block, as a single unformatted string. (Whitespace is treated as significant.)
 
 [[basicexample]]
