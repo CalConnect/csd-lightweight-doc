@@ -8,7 +8,7 @@ Inline elements represent the components of text blocks. They are modelled in th
 
 All Basic Elements have the following attribute:
 
-`contributionelementmetadata`:: attribution of the element to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
+`contribMetadata`:: attribution of the element to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
 
 Three subclasses of Basic Elements are modelled:
 
@@ -85,10 +85,10 @@ Media files are of three subtypes, each of which has its own element name:
 `width`:: optional attribute, which can be an integer or "auto"
 
 * _Audio_ is for audio files, and has the following additional attributes
-`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media class
+`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media_ class
 
 * _Video_ is for audio files, and has the following additional attributes
-`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media class
+`altsource`:: zero or more specifications of alternative files to use as media. These specifications in turn consist of an optional `filename`, a `source`, and a `type`, as with the parent _Media_ class
 `height`:: optional attribute, which can be an integer or "auto"
 `width`:: optional attribute, which can be an integer or "auto"
 

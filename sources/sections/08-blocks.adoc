@@ -8,7 +8,7 @@ Blocks of text are all modelled as subclasses of the _BasicBlock_ class, which h
 
 `id`:: an optional identifier for the block, to be used for cross-references.
 `notes`:: any notes whose scope is the block. Notes are modelled as a sequence of zero or more paragraphs.
-`contributionelementmetadata`:: attribution of the block to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
+`contribMetadata`:: attribution of the block to a specific contributor (<<contributionelementmetadata>>), to be used in change management of documents.
 
 The _BasicDocument_ model recognizes the following classes of block:
 
@@ -19,8 +19,8 @@ The _BasicDocument_ model recognizes the following classes of block:
 * Ancillary blocks: Figures (<<basicfigure>>),
 Sourcecode (<<basicsourcecode>>),
 Formulas (<<basicformula>>),
-Examples (<<basicexample>>),
-Pre-formatted blocks (<<basicliteral>>)
+Pre-formatted blocks (<<basicliteral>>),
+Examples (<<basicexample>>)
 
 .Basic Document model: Block
 image::basicdoc-models/images/Blocks.png[]
@@ -62,7 +62,9 @@ _Blockquote_, which also contains an optional bibliographic citation for the quo
 
 ==== Admonition
 
-_Admonition_, which captures sidebars to the main text conveying particular warnings or supplementary text to the reader. The Admonition block includes a name (title), a class, a URI (in case the admonition is available as a separate external document), and a type of admonition. The type of admonition determines the rendering of the admonition; the class allows different runs of admonitions to be labelled and auto-numbered differently, even if they are of the same type. The defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, Caution, and Statement_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
+_Admonition_, which captures sidebars to the main text conveying particular warnings or supplementary text to the reader. The Admonition block includes a `name` (title), a `class` (subcategory), a `URI` (in case the admonition is available as a separate external document), and a `type` of admonition. 
+
+The `type` of admonition determines the rendering of the admonition; the `class` allows different runs of admonitions to be labelled and auto-numbered differently, even if they are of the same type. The defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, Caution, and Statement_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
 
 NOTE: Statement is intended for typographically separate statements in mathematics, such as propositions, proofs, or theorems. Statement conflates all of these for rendering, while Proposition, Proof, Theorem etc. can be treated as distinct classes.
 
@@ -102,10 +104,13 @@ They contain the following elements:
 
 `alt`:: Alternate text to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
 
+`summary`:: Alternative more extensive summary of table to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
+
 `uri`:: a URI (in case the admonition is available as a separate external document),
 
 `unnumbered`:: An optional boolean attribute indicating that the table should be excluded from any automatic numbering of tables in the document.
 
+`subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
 
 ==== Table rows
 
@@ -178,6 +183,8 @@ NOTE: This reflects practice in e.g. <<isoiecdir2>>, and subfigures are intended
 
 `unnumbered`:: An optional boolean attribute indicating that the figure should be excluded from any automatic numbering of figures in the document.
 
+`subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
+
 
 [[basicsourcecode]]
 ==== Sourcecode
@@ -197,6 +204,8 @@ Sourcecode blocks are wrappers for computer code or comparable text. They contai
 `calloutAnnotations`:: These are annotations to the source code; each annotation consists of zero or more paragraphs, and is intended to be referenced by a callout within the source code.
 
 `unnumbered`:: An optional boolean attribute indicating that the sourcecode block should be excluded from any automatic numbering of sourcecode blocks in the document.
+`subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
+
 
 [[basicformula]]
 ==== Formula
@@ -211,6 +220,8 @@ NOTE: This reflects practice in <<isoiecdir2>>.
 --
 
 `unnumbered`:: An optional boolean attribute indicating that the formula should be excluded from any automatic numbering of formulas in the document.
+`subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
+`inequality`:: An optional boolean attribute indicating that the formula is to be labelled as an Inequality, if inequalities are differentiated from equations.
 
 [[basicliteral]]
 ==== Pre-formatted Blocks
@@ -238,4 +249,5 @@ It also contains the following elements:
 
 `unnumbered`:: An optional boolean attribute indicating that the example should be excluded from any automatic numbering of examples in the document.
 
+`subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
 
