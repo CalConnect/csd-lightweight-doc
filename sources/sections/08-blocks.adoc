@@ -62,7 +62,7 @@ _Blockquote_, which also contains an optional bibliographic citation for the quo
 
 ==== Admonition
 
-_Admonition_, which captures sidebars to the main text conveying particular warnings or supplementary text to the reader. The Admonition block includes a `name` (title), a `class` (subcategory), a `URI` (in case the admonition is available as a separate external document), and a `type` of admonition. 
+_Admonition_, which captures sidebars to the main text conveying particular warnings or supplementary text to the reader. The Admonition block includes a `name` (title), a `class` (subcategory), a `uri` (in case the admonition is available as a separate external document), and a `type` of admonition. 
 
 The `type` of admonition determines the rendering of the admonition; the `class` allows different runs of admonitions to be labelled and auto-numbered differently, even if they are of the same type. The defined types for the _BasicDocument_ model are _Warning, Note, Tip, Important, Caution, and Statement_. (In rendering, distinct admonition types are often associated with distinct icons or rendering.)
 
@@ -106,7 +106,7 @@ They contain the following elements:
 
 `summary`:: Alternative more extensive summary of table to be provided for accessibility purposes, in case the table cannot be rendered accessibly.
 
-`uri`:: a URI (in case the admonition is available as a separate external document),
+`uri`:: a URI (in case the table is available as a separate external document),
 
 `unnumbered`:: An optional boolean attribute indicating that the table should be excluded from any automatic numbering of tables in the document.
 
@@ -165,7 +165,9 @@ Figures are wrappers for images, and may themselves contain figures (_Subfigure_
 
 `class`:: A class for the figure; this is to allow different classes of figure (e.g. _Plate_, _Chart_, _Diagram_) to be auto-numbered and captioned differently.
 
-`image`:: An image (<<image>>).
+`image`:: An image file (<<image>>).
+`video`:: A video file (<<image>>).
+`audio`:: An audio file (<<image>>).
 
 `source`:: A URI or other reference intended to link to an externally hosted image (or equivalent).
 
