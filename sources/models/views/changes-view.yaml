@@ -1,0 +1,17 @@
+name: Change
+title: Change rule class
+caption: Change rule class data model
+directive: change
+imports:
+  ChangeSet:
+  Change:
+  UniqueIdentifier:
+  NodeChange:
+  ContentChange:
+  ContentModify:
+  NodeInsert:
+  NodeDelete:
+  NodeMove:
+  AttributeModify:
+  ContentChangeAction:
+  AttributeChangeAction:

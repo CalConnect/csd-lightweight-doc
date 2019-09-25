@@ -1,0 +1,91 @@
+# Converstion from MultiParagraphs.wsd
+# Created by: Vasil Buraliev (vasil.buraliev@vbu.mk)
+# Create date: 25/09/2019
+
+title: Multi Paragraphs
+classes:
+  ParagraphsBlock:
+    definition: |
+
+  QuoteBlock:
+    definition: |
+
+    attributes:
+      source:
+        definition: 
+        type: ReferenceToCitationElement
+        cardinality:
+          min: 0
+          max: 1
+      author:
+        definition: 
+        type: String
+    relations:
+      - target: ParagraphsBlock
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+
+  ReviewBlock:
+    definition: |
+
+    attributes:
+      reviewer:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
+      date:
+        definition: 
+        type: DateTime
+        cardinality:
+          min: 0
+          max: 1
+      appliesFrom:
+        definition: 
+        type: IdElement
+      appliesTo:
+        definition: 
+        type: IdElement
+        cardinality:
+          min: 0
+          max: 1
+    relations:
+      - target: ParagraphsBlock
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  AdmonitionBlock:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: AdmonitionType
+      name:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
+      class:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
+      uri:
+        definition: 
+        type: Uri
+        cardinality:
+          min: 0
+          max: 1
+    relations:
+      - target: ParagraphsBlock
+        relationship:
+          target:
+            type: inheritance
+        direction: right

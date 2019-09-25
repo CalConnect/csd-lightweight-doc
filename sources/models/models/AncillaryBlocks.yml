@@ -24,7 +24,19 @@ classes:
         cardinality:
           min: 0
           max: 1
+      subsequence:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
       name:
+        definition: 
+        type: LocalizedString
+        cardinality:
+          min: 0
+          max: 1
+      class:
         definition: 
         type: LocalizedString
         cardinality:
@@ -33,6 +45,18 @@ classes:
       image:
         definition: 
         type: Image
+        cardinality:
+          min: 0
+          max: 1
+      video:
+        definition: 
+        type: Video
+        cardinality:
+          min: 0
+          max: 1
+      audio:
+        definition: 
+        type: Audio
         cardinality:
           min: 0
           max: 1
@@ -59,7 +83,7 @@ classes:
         relationship:
           target:
             type: inheritance
-        direction: up
+        direction: right
   # Subfigures and images only occur within figures
   Subfigure: 
     definition: |
@@ -83,6 +107,12 @@ classes:
       unnumbered:
         definition: 
         type: Boolean
+        cardinality:
+          min: 0
+          max: 1
+      subsequence:
+        definition: 
+        type: String
         cardinality:
           min: 0
           max: 1
@@ -118,7 +148,7 @@ classes:
         relationship:
           target:
             type: inheritance
-        direction: up
+        direction: right
   FormulaBlock:
     definition: |
 
@@ -127,6 +157,18 @@ classes:
         definition: 
         type: StemElement
       unnumbered:
+        definition: 
+        type: Boolean
+        cardinality:
+          min: 0
+          max: 1
+      subsequence:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
+      inequality:
         definition: 
         type: Boolean
         cardinality:
@@ -151,6 +193,12 @@ classes:
       unnumbered:
         definition: 
         type: Boolean
+        cardinality:
+          min: 0
+          max: 1
+      subsequence:
+        definition: 
+        type: String
         cardinality:
           min: 0
           max: 1
@@ -189,7 +237,7 @@ classes:
         relationship:
           target:
             type: inheritance
-        direction: up
+        direction: left
   LiteralBlock:
     definition: |
 

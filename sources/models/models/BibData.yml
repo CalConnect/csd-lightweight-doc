@@ -1,0 +1,42 @@
+# Converstion from BibData.wsd
+# Created by: Vasil Buraliev (vasil.buraliev@vbu.mk)
+# Create date: 25/09/2019
+
+title: Bib Data
+classes:
+  BibliographicItem:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: Bibliography
+  BibData:
+    definition: |
+
+    attributes:
+      ext:
+        definition: 
+        type: BibDataExtensionType
+    relations:
+      - target: BibliographicItem
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  BibDataExtensionType:
+    definition: |
+
+    attributes:
+      doctype:
+        definition: 
+        type: DocumentType
+        cardinality:
+          min: 0
+          max: "*"
+    relations:
+      - target: BibData
+        relationship:
+          target:
+            type: direct
+        direction: up
