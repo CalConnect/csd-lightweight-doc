@@ -253,3 +253,5 @@ It also contains the following elements:
 
 `subsequence`:: A token indicating that all assets with the same subsequence token are to be autonumbered in the same subsequence (e.g. as 2a, 2b, 2c... rather than as 2, 3, 4...)
 
+`name`:: A label for the example.
+
