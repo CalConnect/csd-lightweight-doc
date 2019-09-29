@@ -1,0 +1,10 @@
+name: SmallCapsElement
+modelType: class
+definition: |
+
+relations:
+  - target: TextElement
+    relationship:
+      target:
+        type: inheritance
+    direction: up

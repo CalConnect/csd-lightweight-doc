@@ -1,0 +1,14 @@
+name: ReferenceToIdElement
+modelType: class
+definition: |
+
+attributes:
+  target:
+    definition: 
+    type: IdElement
+relations:
+  - target: ReferenceElement
+    relationship:
+      target:
+        type: inheritance
+    direction: up

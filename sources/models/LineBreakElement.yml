@@ -1,0 +1,11 @@
+# * `LinkBreakElement` is `<br>`
+name: LineBreakElement
+modelType: class
+definition: |
+
+relations:
+  - target: BasicElement
+    relationship:
+      target:
+        type: inheritance
+    direction: up

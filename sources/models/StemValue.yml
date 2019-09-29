@@ -1,0 +1,10 @@
+name: StemValue
+modelType: class
+definition: |
+
+relations:
+  - target: StemElement
+    relationship:
+      target:
+        type: direct
+    direction: up

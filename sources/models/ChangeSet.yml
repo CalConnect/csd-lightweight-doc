@@ -1,0 +1,14 @@
+name: ChangeSet
+modelType: class
+definition: |
+
+attributes:
+  changes:
+    definition: 
+    type: Change
+    cardinality:
+      min: 0
+      max: "*"
+  documentIdentifier:
+    definition: 
+    type: UniqueIdentifier

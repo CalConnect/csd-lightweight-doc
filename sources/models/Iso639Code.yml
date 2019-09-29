@@ -1,0 +1,8 @@
+name: Iso639Code
+modelType: class
+definition: |
+
+attributes:
+  type:
+    definition: 
+    type: dataType

@@ -1,0 +1,10 @@
+name: EmphasisElement
+modelType: class
+definition: |
+
+relations:
+  - target: TextElement
+    relationship:
+      target:
+        type: inheritance
+    direction: right

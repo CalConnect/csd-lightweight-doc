@@ -1,0 +1,10 @@
+name: UnorderedList
+modelType: class
+definition: |
+
+relations:
+  - target: List
+    relationship:
+      target:
+        type: inheritance
+    direction: up

@@ -1,0 +1,14 @@
+name: AsciiML
+modelType: class
+definition: |
+
+attributes:
+  value:
+    definition: 
+    type: String
+relations:
+  - target: StemValue
+    relationship:
+      target:
+        type: inheritance
+    direction: up

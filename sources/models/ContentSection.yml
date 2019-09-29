@@ -1,0 +1,10 @@
+name: ContentSection
+modelType: class
+definition: |
+
+relations:
+  - target: HierarchicalSection
+    relationship:
+      target:
+        type: inheritance
+    direction: up

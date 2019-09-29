@@ -1,0 +1,14 @@
+name: BibData
+modelType: class
+definition: |
+
+attributes:
+  ext:
+    definition: 
+    type: BibDataExtensionType
+relations:
+  - target: BibliographicItem
+    relationship:
+      target:
+        type: inheritance
+    direction: up

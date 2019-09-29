@@ -1,0 +1,10 @@
+name: IntregityValue
+modelType: class
+definition: |
+
+relations:
+  - target: ContributionElementMetadata
+    relationship:
+      target:
+        type: direct
+    direction: up

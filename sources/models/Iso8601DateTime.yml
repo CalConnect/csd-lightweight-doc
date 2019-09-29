@@ -1,0 +1,8 @@
+name: Iso8601DateTime
+modelType: class
+definition: |
+
+attributes:
+  type:
+    definition: 
+    type: dataType

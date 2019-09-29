@@ -1,0 +1,8 @@
+name: String
+modelType: class
+definition: |
+
+attributes:
+  type:
+    definition: 
+    type: dataType

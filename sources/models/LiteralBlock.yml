@@ -1,0 +1,10 @@
+name: LiteralBlock
+modelType: class
+definition: |
+
+relations:
+  - target: BasicBlock
+    relationship:
+      target:
+        type: inheritance
+    direction: up  

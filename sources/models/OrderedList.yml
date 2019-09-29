@@ -1,0 +1,14 @@
+name: OrderedList
+modelType: class
+definition: |
+
+attributes:
+  type:
+    definition: 
+    type: OrderedListType
+relations:
+  - target: UnorderedList
+    relationship:
+      target:
+        type: inheritance
+    direction: up

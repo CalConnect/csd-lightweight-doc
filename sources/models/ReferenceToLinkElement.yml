@@ -1,0 +1,14 @@
+name: ReferenceToLinkElement
+modelType: class
+definition: |
+
+attributes:
+  target:
+    definition: 
+    type: Uri
+relations:
+  - target: ReferenceElement
+    relationship:
+      target:
+        type: inheritance
+    direction: up

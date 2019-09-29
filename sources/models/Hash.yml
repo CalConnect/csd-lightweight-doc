@@ -1,0 +1,17 @@
+name: Hash
+modelType: class
+definition: |
+
+attributes:
+  algorithm:
+    definition: 
+    type: Iso10118Oid
+  value:
+    definition: 
+    type: String
+relations:
+  - target: IntregityValue
+    relationship:
+      target:
+        type: inheritance
+    direction: up

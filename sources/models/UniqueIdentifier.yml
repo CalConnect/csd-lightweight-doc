@@ -1,0 +1,14 @@
+name: UniqueIdentifier
+modelType: class
+definition: |
+
+attributes:
+  value:
+    definition: 
+    type: String
+relations:
+  - target: Change
+    relationship:
+      target:
+        type: direct
+    direction: up

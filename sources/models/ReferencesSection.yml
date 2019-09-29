@@ -1,0 +1,17 @@
+name: ReferencesSection
+modelType: class
+definition: |
+
+attributes:
+  references:
+    definition: 
+    type: BibliographicItem
+    cardinality:
+      min: 0
+      max: "*"
+relations:
+  - target: BasicSection
+    relationship:
+      target:
+        type: inheritance
+    direction: up

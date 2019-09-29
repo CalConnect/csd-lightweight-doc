@@ -1,0 +1,10 @@
+name: Bookmark
+modelType: class
+definition: |
+
+relations:
+  - target: IdElement
+    relationship:
+      target:
+        type: inheritance
+    direction: up

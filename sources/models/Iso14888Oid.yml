@@ -1,0 +1,9 @@
+# Signature algorithm
+name: Iso14888Oid
+modelType: class
+definition: |
+
+attributes:
+  type:
+    definition: 
+    type: dataType
