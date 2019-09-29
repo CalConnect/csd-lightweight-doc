@@ -1,0 +1,75 @@
+# Converstion from DataTypes.wsd
+# Created by: Vasil Buraliev (vasil.buraliev@vbu.mk)
+# Create date: 25/09/2019
+
+title: Data Types
+classes:
+  LocalizedString:
+    definition: |
+
+    attributes:
+      language:
+        definition: 
+        type: Iso639Code
+        cardinality:
+          min: 0
+          max: "*"
+      script:
+        definition: 
+        type: Iso15924Code
+        cardinality:
+          min: 0
+          max: "*"
+      content:
+        definition: 
+        type: String
+  Uri:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: primitiveType
+  String:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: dataType
+  # FormattedString defaults to "plain"
+  FormattedString:
+    definition: |
+
+    attributes:
+      format:
+        definition: 
+        type: StringFormat
+        value: "plain"
+    relations:
+      - target: LocalizedString
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  Iso8601DateTime:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: dataType
+  Iso15924Code:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: dataType
+  Iso639Code:
+    definition: |
+
+    attributes:
+      type:
+        definition: 
+        type: dataType

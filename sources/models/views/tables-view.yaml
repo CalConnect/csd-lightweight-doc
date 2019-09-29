@@ -1,0 +1,11 @@
+name: Tables
+title: Tables rule class
+caption: Tables rule class data model
+directive: Tables
+imports:
+  BasicBlock:
+  TableBlock:
+  TextTableRow:
+  TableCell:
+  TextTableCell:
+  ParagraphTableCell:

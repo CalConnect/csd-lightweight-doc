@@ -1,0 +1,6 @@
+name: Blocks
+title: Blocks rule class
+caption: Blocks rule class data model
+directive: blocks
+imports:
+  BasicBlock:

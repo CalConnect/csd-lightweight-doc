@@ -1,0 +1,210 @@
+# Converstion from Changes.wsd
+# Created by: Vasil Buraliev (vasil.buraliev@vbu.mk)
+# Create date: 25/09/2019
+
+title: Change
+classes:
+  ChangeSet:
+    definition: |
+
+    attributes:
+      changes:
+        definition: 
+        type: Change
+        cardinality:
+          min: 0
+          max: "*"
+      documentIdentifier:
+        definition: 
+        type: UniqueIdentifier
+  Change:
+    definition: |
+
+    attributes:
+      target:
+        definition: 
+        type: ReferenceToIdElement
+      identifier:
+        definition: 
+        type: UniqueIdentifier
+      parentIdentifier:
+        definition: 
+        type: UniqueIdentifier
+        cardinality:
+          min: 0
+          max: 1
+      contribMetadata:
+        definition: 
+        type: ContributionElementMetadata
+        cardinality:
+          min: 0
+          max: "*"
+    relations:
+      - target: ChangeSet
+        relationship:
+          target:
+            type: direct
+        direction: up
+  UniqueIdentifier:
+    definition: |
+
+    attributes:
+      value:
+        definition: 
+        type: String
+    relations:
+      - target: Change
+        relationship:
+          target:
+            type: direct
+        direction: up
+  # Add/remove node
+  # Move node
+  NodeChange:
+    definition: |
+    
+    relations:
+      - target: Change
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  # Add text
+  # Delete text
+  # Modify text
+  ContentChange:
+    definition: |
+
+    relations:
+      - target: Change
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+
+  ContentModify:
+    definition: |
+
+    attributes:
+      actions:
+        definition: 
+        type: ContentChangeAction
+        cardinality:
+          min: 1
+          max: "*"
+    relations:
+      - target: ContentChange
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  NodeInsert:
+    definition: |
+
+    attributes:
+      content:
+        definition: 
+        type: BasicElement
+    relations:
+      - target: NodeChange
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  NodeDelete:
+    definition: |
+
+    attributes:
+      hashValue:
+        definition: 
+        type: String
+    relations:
+      - target: NodeChange
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  NodeMove:
+    definition: |
+
+    attributes:
+      positionOld:
+        definition: 
+        type: ReferenceToIdElement
+      positionNew:
+        definition: 
+        type: ReferenceToIdElement
+    relations:
+      - target: NodeChange
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  # Add attribute
+  # Remove attribute
+  # Modify attribute
+  AttributeModify:
+    definition: |
+
+    attributes:
+      actions:
+        definition: 
+        type: AttributeChangeAction
+        cardinality:
+          min: 1
+          max: "*"
+    relations:
+      - target: ContentModify
+        relationship:
+          target:
+            type: inheritance
+        direction: up
+  ContentChangeAction:
+    definition: |
+
+    attributes:
+      action:
+        definition: 
+        type: ContentAction
+      from:
+        definition: 
+        type: Integer
+      to:
+        definition: 
+        type: Integer
+      text:
+        definition: 
+        type: String
+        cardinality:
+          min: 0
+          max: 1
+      length:
+        definition: 
+        type: Integer
+        cardinality:
+          min: 0
+          max: 1
+    relations:
+      - target: ContentModify
+        relationship:
+          target:
+            type: direct
+        direction: up
+  AttributeChangeAction:
+    definition: |
+
+    attributes:
+      attributeId:
+        definition: 
+        type: String
+    relations:
+      - target: AttributeModify
+        relationship:
+          target:
+            type: direct
+        direction: up
+      - target: ContentChangeAction
+        relationship:
+          target:
+            type: inheritance
+        direction: up
