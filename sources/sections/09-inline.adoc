@@ -76,6 +76,7 @@ There are two subclasses of ID Elements in the _BasicDocument_ model:
 `filename`:: indicating a file name corresponding to the media, to which the media can be extracted if it is represented inline (e.g. in Base64 encoding in the URI)
 `type`:: indicating the type of the image file; the Basic Document model leaves the text to be used here open, but recommends the use of MIME types (<<MIME>>)
 `alt`:: alternate text, supplied for accessibility
+`title`:: title, supplied for accessibility
 `longdesc`:: URI pointing to more extensive alternate text description, supplied for accessibility
 
 Media files are of three subtypes, each of which has its own element name:
