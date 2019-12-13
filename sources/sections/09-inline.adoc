@@ -56,6 +56,8 @@ The following elements are subclasses of Basic Element that contain no text, and
 * Line Break (corresponding to HTML `br`)
 * Page Break
 * Horizontal Rule (corresponding to HTML `hr`)
+* Index Term
+** Contains Primary, and optionally Secondary and Tertiary index terms to be associated with that location in the next, but no textual content.
 
 .Basic Document model: Empty Elements
 image::basicdoc-models/images/EmptyElements.png[]
