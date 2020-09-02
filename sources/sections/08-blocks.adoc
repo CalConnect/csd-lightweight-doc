@@ -125,6 +125,7 @@ _Table cells_ contain either zero or more paragraphs with footnotes (<<basicpara
 `rowspan`:: Number of rows in the underlying table grid which the cell spans.
 
 `align`:: Textual alignment of the cell.
+`valign`:: Vertical alignment of the cell.
 
 
 
