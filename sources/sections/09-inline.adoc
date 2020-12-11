@@ -58,6 +58,8 @@ The following elements are subclasses of Basic Element that contain no text, and
 * Horizontal Rule (corresponding to HTML `hr`)
 * Index Term
 ** Contains Primary, and optionally Secondary and Tertiary index terms to be associated with that location in the next, but no textual content.
+* Index Cross-Reference
+** Contains Primary, and optionally Secondary and Tertiary index terms, to be cross-referenced to an alternate index entry, either as "see" or "see also", depending on an `also` attribute
 
 .Basic Document model: Empty Elements
 image::basicdoc-models/images/EmptyElements.png[]
