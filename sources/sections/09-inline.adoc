@@ -58,8 +58,6 @@ The following elements are subclasses of Basic Element that contain no text, and
 * Horizontal Rule (corresponding to HTML `hr`)
 * Index Term
 ** Contains Primary, and optionally Secondary and Tertiary index terms to be associated with that location in the next, but no textual content.
-* Index Cross-Reference
-** Contains Primary, and optionally Secondary and Tertiary index terms, to be cross-referenced to an alternate index entry, either as "see" or "see also", depending on an `also` attribute
 
 .Basic Document model: Empty Elements
 image::basicdoc-models/images/EmptyElements.png[]
@@ -115,6 +113,7 @@ The following subclasses of Reference Elements are modelled.
 * Reference to Link Element: An external reference, whose `target` is defined as a URI. An optional `alt` attribute is also permitted, summarising the link content for accessibility.
 * Reference to Citation Element: An external reference to a bibliographic entity, as modelled in <<relaton>> as a _citation_. In addition to the attributes of _citation_, the reference has an optional `normative` attribute (which may be used by those standards which differentiate normative and informative references), and optional `citeAs` attributes prescribing how the bibliographic citation should be rendered in the text.
 * Reference to ID Element: An internal reference, whose `target` corresponds to the identifier of a section, block or ID Element within the current document.
+* Reference to Index Element: Contains Primary, and optionally Secondary and Tertiary index terms, to be cross-referenced to an alternate index entry, either as "see" or "see also", depending on an `also` attribute
 
 The Reference to ID Element class in turn has the following subclasses modelled:
 
