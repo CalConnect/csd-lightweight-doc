@@ -58,6 +58,7 @@ The following elements are subclasses of Basic Element that contain no text, and
 * Horizontal Rule (corresponding to HTML `hr`)
 * Index Term
 ** Contains Primary, and optionally Secondary and Tertiary index terms to be associated with that location in the next, but no textual content.
+** Contains optional attribute `to`, a reference to an ID element (<<crossreferences>>), to indicate that the index range covers a range of locations; the attribute should reference a bookmark.
 
 .Basic Document model: Empty Elements
 image::basicdoc-models/images/EmptyElements.png[]
